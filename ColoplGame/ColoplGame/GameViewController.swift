@@ -10,9 +10,13 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    let motionManager = MyCMMotionManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        motionManager.startAccelerometerUpdate()
     }
 
     override func shouldAutorotate() -> Bool {
