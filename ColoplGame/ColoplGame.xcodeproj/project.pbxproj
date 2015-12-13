@@ -17,6 +17,8 @@
 		25B4CF211C1D2D6600E6E9C7 /* ColoplGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF201C1D2D6600E6E9C7 /* ColoplGameUITests.swift */; };
 		25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */; };
 		25B4CF341C1D317A00E6E9C7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */; };
+		25B4CF391C1D45C400E6E9C7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF381C1D45C400E6E9C7 /* StartViewController.swift */; };
+		25B4CF3B1C1D45E600E6E9C7 /* StageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF3A1C1D45E600E6E9C7 /* StageSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		25B4CF221C1D2D6600E6E9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCMMotionManager.swift; sourceTree = "<group>"; };
 		25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		25B4CF381C1D45C400E6E9C7 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		25B4CF3A1C1D45E600E6E9C7 /* StageSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		25B4CEFB1C1D2D6600E6E9C7 /* ColoplGame */ = {
 			isa = PBXGroup;
 			children = (
+				25B4CF371C1D45AD00E6E9C7 /* Controller */,
 				25B4CF2E1C1D2F0700E6E9C7 /* Manager */,
 				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
 				25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */,
@@ -141,6 +146,15 @@
 				25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */,
 			);
 			name = Manager;
+			sourceTree = "<group>";
+		};
+		25B4CF371C1D45AD00E6E9C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25B4CF381C1D45C400E6E9C7 /* StartViewController.swift */,
+				25B4CF3A1C1D45E600E6E9C7 /* StageSelectViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B4CF391C1D45C400E6E9C7 /* StartViewController.swift in Sources */,
 				25B4CF011C1D2D6600E6E9C7 /* GameScene.swift in Sources */,
 				25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */,
 				25B4CF031C1D2D6600E6E9C7 /* GameViewController.swift in Sources */,
 				25B4CEFD1C1D2D6600E6E9C7 /* AppDelegate.swift in Sources */,
+				25B4CF3B1C1D45E600E6E9C7 /* StageSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +520,7 @@
 				25B4CF271C1D2D6600E6E9C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B4CF281C1D2D6600E6E9C7 /* Build configuration list for PBXNativeTarget "ColoplGameTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +529,7 @@
 				25B4CF2A1C1D2D6600E6E9C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B4CF2B1C1D2D6600E6E9C7 /* Build configuration list for PBXNativeTarget "ColoplGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +538,7 @@
 				25B4CF2D1C1D2D6600E6E9C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
