@@ -11,12 +11,16 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    let motionManager = MyCMMotionManager()
-
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()    
         
-        motionManager.startAccelerometerUpdate()
+        let scene = GameScene()
+        scene.scaleMode = .AspectFill
+        
+        let view = self.view as! SKView
+
+        scene.size = view.frame.size
+        view.presentScene(scene)
     }
 
     override func shouldAutorotate() -> Bool {
