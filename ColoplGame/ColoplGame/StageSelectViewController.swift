@@ -59,6 +59,10 @@ class StageSelectViewController: UIViewController {
     
     func showStage(sender: UIButton) {
         print("tapped Button = \(sender.titleLabel?.text)")
+        // ゲームステージに遷移する
+        if let gameStageVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController {
+            self.presentViewController(gameStageVC, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

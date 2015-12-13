@@ -27,7 +27,7 @@ class MyCMMotionManager: CMMotionManager {
             (data: CMAccelerometerData?, error: NSError?) -> Void in
             
             // ログにx,y,zの加速度を表示
-            print("x:\(data?.acceleration.x) y:\(data?.acceleration.y)")
+            //print("x:\(data?.acceleration.x) y:\(data?.acceleration.y)")
             // 現在の加速度センサーの値を保存しておく
             if let x = data?.acceleration.x {
                 self.accelerationX = x
