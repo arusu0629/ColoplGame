@@ -17,4 +17,10 @@ class StartViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // タッチした時にステージ選択画面に遷移する
+        let stageVC = StageSelectViewController()
+        self.presentViewController(stageVC, animated: true, completion: nil)
+    }
 }
