@@ -19,6 +19,8 @@ class StageSelectViewController: UIViewController {
     let buttonNum = 50.0 // 今はテストとして50個のステージボタンを配置する
     
     var scrollView: UIScrollView!
+    
+    var canTouch = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,11 @@ class StageSelectViewController: UIViewController {
         
         // ステージボタンを表示する
         self.showStageButton()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.canTouch = true
     }
     
     func showStageButton() {
@@ -58,9 +65,11 @@ class StageSelectViewController: UIViewController {
     }
     
     func showStage(sender: UIButton) {
-        print("tapped Button = \(sender.titleLabel?.text)")
+        if (!canTouch) {
+            return
+        }
         // ゲームステージに遷移する
-        if let gameStageVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController {
+        if let gameStageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController {
             self.presentViewController(gameStageVC, animated: true, completion: nil)
         }
     }

@@ -11,18 +11,22 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    let scene = GameScene()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()    
-        
-        let scene = GameScene()
+        super.viewDidLoad()
         scene.scaleMode = .AspectFill
-        
         let view = self.view as! SKView
-
         scene.size = view.frame.size
+        
+
         view.presentScene(scene)
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)        
+    }
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
@@ -37,5 +41,9 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    // デバッグ用でoverrideしておく(原因不明12/14)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
 }

@@ -113,7 +113,6 @@
 				25B4CF2E1C1D2F0700E6E9C7 /* Manager */,
 				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
 				25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */,
-				25B4CF021C1D2D6600E6E9C7 /* GameViewController.swift */,
 				25B4CF041C1D2D6600E6E9C7 /* Main.storyboard */,
 				25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */,
 				25B4CF091C1D2D6600E6E9C7 /* LaunchScreen.storyboard */,
@@ -151,6 +150,7 @@
 		25B4CF371C1D45AD00E6E9C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25B4CF021C1D2D6600E6E9C7 /* GameViewController.swift */,
 				25B4CF381C1D45C400E6E9C7 /* StartViewController.swift */,
 				25B4CF3A1C1D45E600E6E9C7 /* StageSelectViewController.swift */,
 			);
