@@ -25,16 +25,18 @@ class GameScene: SKScene {
     let goalArea = SKShapeNode(rectOfSize: CGSize(width: 50, height: 50))
     // クリアフラグ
     var clearFlag = false
+    // ジャンプできる回数
+    var restJumpCount = 2
 
     
     override func didMoveToView(view: SKView) {
         motionManager.startAccelerometerUpdate() // 加速度センサーを起動
-        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8) // 重力の設定
+//        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -2.0) // 重力の設定
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.dynamic = false
         self.physicsBody?.categoryBitMask = ColliderType.World
         self.physicsWorld.contactDelegate = self
-        self.name = "Game Scene Area"
+        self.name = "GameSceneArea"
         
         // 自分が動かすボールの初期設定を行う
         self.configurePlayerBall()
@@ -52,9 +54,9 @@ class GameScene: SKScene {
         // ゲームシーンの周りのエリアと障害物との間で接触した際に反射動作を行う(つまりゴールエリアと接触した場合は反射動作せず、すり抜ける)
         self.playerBall.physicsBody?.collisionBitMask = (ColliderType.World | ColliderType.Other)
         // ゴールエリアと障害物と接触した場合にデリゲートメソッドを呼び出す対象のオブジェクトの指定
-        self.playerBall.physicsBody?.contactTestBitMask = (ColliderType.GoalArea | ColliderType.Other)
+        self.playerBall.physicsBody?.contactTestBitMask = (ColliderType.GoalArea | ColliderType.Other | ColliderType.World)
         
-        self.playerBall.name = "Player Ball"
+        self.playerBall.name = "PlayerBall"
         self.addChild(self.playerBall)
     }
     
@@ -69,7 +71,7 @@ class GameScene: SKScene {
         self.goalArea.physicsBody?.categoryBitMask = ColliderType.GoalArea
         // プレイヤーボールとの接触がされた際にデリゲートメソッドを呼び出す
         self.goalArea.physicsBody?.contactTestBitMask = ColliderType.PlayerBall
-        self.goalArea.name = "Goal Area"
+        self.goalArea.name = "GoalArea"
         self.addChild(self.goalArea)
     }
     
@@ -109,12 +111,18 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print("GameScene Now!!!")
+        if (self.clearFlag) {
+            return
+        }
+        if (self.restJumpCount == 0) {
+            return
+        }
+        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 5))
+        self.restJumpCount--
     }
    
     override func update(currentTime: CFTimeInterval) {
-        // 今は横方向(x軸)のみの動き
-        self.playerBall.physicsBody?.velocity = CGVector(dx: self.motionManager.accelerationX * 500, dy: 0)
-//        self.playerBall.physicsBody?.velocity = CGVector(dx: self.motionManager.accelerationX * 500, dy: self.motionManager.accelerationY * 500)
+        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
     }
     
     override init() {
@@ -134,9 +142,13 @@ class GameScene: SKScene {
 extension GameScene: SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         print("nodeA = \(contact.bodyA.node?.name) nodeB = \(contact.bodyB.node?.name)")
-        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self.goalArea) || (contact.bodyA.node == self.goalArea || contact.bodyB.node == self.playerBall)) {
+        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self.goalArea) || (contact.bodyA.node == self.goalArea && contact.bodyB.node == self.playerBall)) {
             self.showClearLabel()
             return
+        }
+        // 地面についたらダブルジャンプの回数をリセットする
+        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self) || (contact.bodyA.node == self && contact.bodyB.node == self.playerBall)) {
+            self.restJumpCount = 2
         }
     }
 }
