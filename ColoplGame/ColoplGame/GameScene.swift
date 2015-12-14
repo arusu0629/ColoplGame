@@ -29,7 +29,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         motionManager.startAccelerometerUpdate() // 加速度センサーを起動
-        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -3.0) // 重力の設定
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8) // 重力の設定
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.dynamic = false
         self.physicsBody?.categoryBitMask = ColliderType.World
@@ -112,9 +112,10 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
+        // 今は横方向(x軸)のみの動き
         self.playerBall.physicsBody?.velocity = CGVector(dx: self.motionManager.accelerationX * 500, dy: 0)
+//        self.playerBall.physicsBody?.velocity = CGVector(dx: self.motionManager.accelerationX * 500, dy: self.motionManager.accelerationY * 500)
     }
-    
     
     override init() {
         super.init()

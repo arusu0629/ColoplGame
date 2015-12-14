@@ -19,7 +19,6 @@ class GameViewController: UIViewController {
         let view = self.view as! SKView
         scene.size = view.frame.size
         
-
         view.presentScene(scene)
     }
     
@@ -45,5 +44,9 @@ class GameViewController: UIViewController {
     
     // デバッグ用でoverrideしておく(原因不明12/14)
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (!self.scene.clearFlag) {
+            return
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
