@@ -51,7 +51,7 @@ class StageSelectViewController: UIViewController {
             let buttonRect = CGRect(x: buttonX, y: buttonY, width: buttonSize, height: buttonSize)
             
             let stageButton = UIButton(frame: buttonRect)
-            stageButton.setTitle("Stage\(i + 1)", forState: .Normal)
+            stageButton.setTitle("Stage \(Int(i + 1))", forState: .Normal)
             stageButton.setTitleColor(UIColor.redColor(), forState: .Normal)
             stageButton.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 10)
             stageButton.backgroundColor = UIColor.whiteColor()
