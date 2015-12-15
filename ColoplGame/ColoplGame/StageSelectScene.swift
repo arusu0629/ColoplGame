@@ -1,14 +1,17 @@
 //
-//  StageSelectViewController.swift
+//  StageSelectScene.swift
 //  ColoplGame
 //
-//  Created by ToruNakandakari on H27/12/13.
+//  Created by ToruNakandakari on H27/12/15.
 //  Copyright © 平成27年 ToruNakandakari. All rights reserved.
 //
 
 import UIKit
+import SpriteKit
 
-class StageSelectViewController: UIViewController {
+class StageSelectScene: SKScene {
+    
+    var changeSceneDelegate: ChangeSceneProtocol!
     
     let buttonWidthMargin = 20.0 // ボタンの横間隔
     let buttonHeightMargin = 50.0 // ボタンの縦間隔
@@ -20,25 +23,15 @@ class StageSelectViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
-    var canTouch = false
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        
+    override func didMoveToView(view: SKView) {
         self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
         
         // スクロールビュー
-        self.scrollView = UIScrollView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
-        self.view.addSubview(self.scrollView)
+        self.scrollView = UIScrollView(frame: CGRectMake(0, 0, self.view!.frame.size.width, self.view!.frame.size.height))
+        self.view!.addSubview(self.scrollView)
         
         // ステージボタンを表示する
         self.showStageButton()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.canTouch = true
     }
     
     func showStageButton() {
@@ -65,16 +58,27 @@ class StageSelectViewController: UIViewController {
     }
     
     func showStage(sender: UIButton) {
-        if (!canTouch) {
+        changeSceneDelegate.changeScene(self)
+        if (self.scrollView.hidden) {
             return
         }
-        // ゲームステージに遷移する
-        if let gameStageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController {
-            self.presentViewController(gameStageVC, animated: true, completion: nil)
-        }
+        self.scrollView.hidden = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func update(currentTime: NSTimeInterval) {
+        
+    }
+    
+    override init() {
+        super.init()
+        self.backgroundColor = UIColor.whiteColor()
+    }
+    override init(size: CGSize) {
+        super.init(size: size)
+        self.backgroundColor = UIColor.whiteColor()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -11,16 +11,32 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-//    let scene = GameScene()
-    let scene = StartScene()
+    var gameView: SKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scene.scaleMode = .AspectFill
-        let view = self.view as! SKView
-        scene.size = view.frame.size
         
-        view.presentScene(scene)
+        self.gameView = self.view as! SKView
+        self.gameView.backgroundColor = UIColor.whiteColor()
+        self.switchingStartScene()
+    }
+    
+    func switchingStartScene() {
+        let scene = SceneManager.startScene(self.view.bounds.size)
+        scene.changeSceneDelegate = self
+        SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
+    }
+    
+    func switchingStageSelectScene() {
+        let scene = SceneManager.stageSelectScene(self.view.bounds.size)
+        scene.changeSceneDelegate = self
+        SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
+    }
+    
+    func switchingGameScene() {
+        let scene = SceneManager.gameScene(self.view.bounds.size)
+        scene.changeSceneDelegate = self
+        SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,12 +58,21 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-    
-    // デバッグ用でoverrideしておく(原因不明12/14)
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        if (!self.scene.clearFlag) {
-//            return
-//        }
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
+}
+
+extension GameViewController: ChangeSceneProtocol {
+    func changeScene(scene: SKScene) {
+        if (scene.isKindOfClass(StartScene)) {
+            self.switchingStageSelectScene()
+            return
+        }
+        if (scene.isKindOfClass(StageSelectScene)) {
+            self.switchingGameScene()
+            return
+        }
+        if (scene.isKindOfClass(GameScene)) {
+            self.switchingStageSelectScene()
+            return
+        }
+    }
 }

@@ -11,6 +11,8 @@ import SpriteKit
 
 class StartScene: SKScene {
     
+    var changeSceneDelegate: ChangeSceneProtocol!
+    
     override func didMoveToView(view: SKView) {
         self.configureTitleLabel()
     }
@@ -47,7 +49,7 @@ class StartScene: SKScene {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        changeSceneDelegate.changeScene(self)
     }
 
     override init() {
@@ -57,6 +59,7 @@ class StartScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
+        self.backgroundColor = UIColor.whiteColor()
     }
 
     required init?(coder aDecoder: NSCoder) {

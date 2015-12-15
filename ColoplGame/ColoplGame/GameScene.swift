@@ -10,6 +10,8 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    var changeSceneDelegate: ChangeSceneProtocol!
+    
     struct ColliderType {
         static let PlayerBall: UInt32 = (1 << 0)
         static let GoalArea: UInt32 = (1 << 1)
@@ -112,6 +114,7 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         print("GameScene Now!!!")
         if (self.clearFlag) {
+            self.changeSceneDelegate.changeScene(self)
             return
         }
         if (self.restJumpCount == 0) {
@@ -132,6 +135,7 @@ class GameScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
+        self.backgroundColor = UIColor.whiteColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
