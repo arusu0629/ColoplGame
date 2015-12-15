@@ -11,7 +11,8 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    let scene = GameScene()
+//    let scene = GameScene()
+    let scene = StartScene()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +44,10 @@ class GameViewController: UIViewController {
     }
     
     // デバッグ用でoverrideしておく(原因不明12/14)
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (!self.scene.clearFlag) {
-            return
-        }
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        if (!self.scene.clearFlag) {
+//            return
+//        }
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
 }

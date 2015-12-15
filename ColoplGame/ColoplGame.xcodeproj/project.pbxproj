@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2597295F1C2006C300432C27 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597295E1C2006C300432C27 /* StartScene.swift */; };
 		25B4CEFD1C1D2D6600E6E9C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */; };
 		25B4CF011C1D2D6600E6E9C7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */; };
 		25B4CF031C1D2D6600E6E9C7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF021C1D2D6600E6E9C7 /* GameViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2597295E1C2006C300432C27 /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		25B4CEF91C1D2D6600E6E9C7 /* ColoplGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColoplGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -85,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2597295D1C2006B200432C27 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */,
+				2597295E1C2006C300432C27 /* StartScene.swift */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		25B4CEF01C1D2D6600E6E9C7 = {
 			isa = PBXGroup;
 			children = (
@@ -109,10 +120,10 @@
 		25B4CEFB1C1D2D6600E6E9C7 /* ColoplGame */ = {
 			isa = PBXGroup;
 			children = (
+				2597295D1C2006B200432C27 /* Scene */,
 				25B4CF371C1D45AD00E6E9C7 /* Controller */,
 				25B4CF2E1C1D2F0700E6E9C7 /* Manager */,
 				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
-				25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */,
 				25B4CF041C1D2D6600E6E9C7 /* Main.storyboard */,
 				25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */,
 				25B4CF091C1D2D6600E6E9C7 /* LaunchScreen.storyboard */,
@@ -289,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B4CF391C1D45C400E6E9C7 /* StartViewController.swift in Sources */,
+				2597295F1C2006C300432C27 /* StartScene.swift in Sources */,
 				25B4CF011C1D2D6600E6E9C7 /* GameScene.swift in Sources */,
 				25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */,
 				25B4CF031C1D2D6600E6E9C7 /* GameViewController.swift in Sources */,
