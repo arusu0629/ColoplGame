@@ -31,7 +31,8 @@ class StageSelectScene: SKScene {
         self.view!.addSubview(self.scrollView)
         
         // ステージボタンを表示する
-        self.showStageButton()
+        // ボタンがいきなり表示されておかしいため、遅延実行して表示するようにする
+        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "showStageButton", userInfo: nil, repeats: false)
     }
     
     func showStageButton() {
