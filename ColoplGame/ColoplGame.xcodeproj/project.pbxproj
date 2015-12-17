@@ -14,8 +14,12 @@
 		259729681C2022B500432C27 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729671C2022B500432C27 /* GameViewController.swift */; };
 		2597296C1C22B85A00432C27 /* PlayerBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597296B1C22B85A00432C27 /* PlayerBall.swift */; };
 		2597296E1C22BB7900432C27 /* GoalArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597296D1C22BB7900432C27 /* GoalArea.swift */; };
+		259729711C22BD2500432C27 /* Stage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729701C22BD2500432C27 /* Stage1.swift */; };
+		259729731C22C06800432C27 /* BaseStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729721C22C06800432C27 /* BaseStage.swift */; };
+		259729761C22C58800432C27 /* FadeInOutLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729751C22C58800432C27 /* FadeInOutLabel.swift */; };
+		259729781C22C6D800432C27 /* ClearLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729771C22C6D800432C27 /* ClearLabel.swift */; };
+		2597297A1C22CCE200432C27 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729791C22CCE200432C27 /* GameScene.swift */; };
 		25B4CEFD1C1D2D6600E6E9C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */; };
-		25B4CF011C1D2D6600E6E9C7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */; };
 		25B4CF061C1D2D6600E6E9C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B4CF041C1D2D6600E6E9C7 /* Main.storyboard */; };
 		25B4CF081C1D2D6600E6E9C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */; };
 		25B4CF0B1C1D2D6600E6E9C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B4CF091C1D2D6600E6E9C7 /* LaunchScreen.storyboard */; };
@@ -50,9 +54,13 @@
 		259729671C2022B500432C27 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2597296B1C22B85A00432C27 /* PlayerBall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerBall.swift; sourceTree = "<group>"; };
 		2597296D1C22BB7900432C27 /* GoalArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalArea.swift; sourceTree = "<group>"; };
+		259729701C22BD2500432C27 /* Stage1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage1.swift; sourceTree = "<group>"; };
+		259729721C22C06800432C27 /* BaseStage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStage.swift; sourceTree = "<group>"; };
+		259729751C22C58800432C27 /* FadeInOutLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInOutLabel.swift; sourceTree = "<group>"; };
+		259729771C22C6D800432C27 /* ClearLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearLabel.swift; sourceTree = "<group>"; };
+		259729791C22CCE200432C27 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		25B4CEF91C1D2D6600E6E9C7 /* ColoplGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColoplGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		25B4CF051C1D2D6600E6E9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25B4CF0A1C1D2D6600E6E9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +104,6 @@
 		2597295D1C2006B200432C27 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				25B4CF001C1D2D6600E6E9C7 /* GameScene.swift */,
 				2597295E1C2006C300432C27 /* StartScene.swift */,
 				259729601C200A0D00432C27 /* StageSelectScene.swift */,
 			);
@@ -128,6 +135,24 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		2597296F1C22BD1600432C27 /* Stage */ = {
+			isa = PBXGroup;
+			children = (
+				259729701C22BD2500432C27 /* Stage1.swift */,
+				259729721C22C06800432C27 /* BaseStage.swift */,
+			);
+			name = Stage;
+			sourceTree = "<group>";
+		};
+		259729741C22C57600432C27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				259729751C22C58800432C27 /* FadeInOutLabel.swift */,
+				259729771C22C6D800432C27 /* ClearLabel.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		25B4CEF01C1D2D6600E6E9C7 = {
 			isa = PBXGroup;
 			children = (
@@ -152,16 +177,19 @@
 		25B4CEFB1C1D2D6600E6E9C7 /* ColoplGame */ = {
 			isa = PBXGroup;
 			children = (
-				2597296A1C22B81700432C27 /* Model */,
+				25B4CF0C1C1D2D6600E6E9C7 /* Info.plist */,
+				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
+				259729791C22CCE200432C27 /* GameScene.swift */,
+				25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */,
 				259729691C2022D000432C27 /* Controller */,
+				25B4CF091C1D2D6600E6E9C7 /* LaunchScreen.storyboard */,
+				25B4CF041C1D2D6600E6E9C7 /* Main.storyboard */,
+				25B4CF2E1C1D2F0700E6E9C7 /* Manager */,
+				2597296A1C22B81700432C27 /* Model */,
 				259729661C20202600432C27 /* Protocol */,
 				2597295D1C2006B200432C27 /* Scene */,
-				25B4CF2E1C1D2F0700E6E9C7 /* Manager */,
-				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
-				25B4CF041C1D2D6600E6E9C7 /* Main.storyboard */,
-				25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */,
-				25B4CF091C1D2D6600E6E9C7 /* LaunchScreen.storyboard */,
-				25B4CF0C1C1D2D6600E6E9C7 /* Info.plist */,
+				2597296F1C22BD1600432C27 /* Stage */,
+				259729741C22C57600432C27 /* View */,
 			);
 			path = ColoplGame;
 			sourceTree = "<group>";
@@ -324,15 +352,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				259729781C22C6D800432C27 /* ClearLabel.swift in Sources */,
 				2597295F1C2006C300432C27 /* StartScene.swift in Sources */,
+				259729731C22C06800432C27 /* BaseStage.swift in Sources */,
 				259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */,
-				25B4CF011C1D2D6600E6E9C7 /* GameScene.swift in Sources */,
 				25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */,
+				259729761C22C58800432C27 /* FadeInOutLabel.swift in Sources */,
 				2597296C1C22B85A00432C27 /* PlayerBall.swift in Sources */,
 				2597296E1C22BB7900432C27 /* GoalArea.swift in Sources */,
 				259729681C2022B500432C27 /* GameViewController.swift in Sources */,
+				259729711C22BD2500432C27 /* Stage1.swift in Sources */,
 				25B4CEFD1C1D2D6600E6E9C7 /* AppDelegate.swift in Sources */,
 				259729631C20196E00432C27 /* SceneManager.swift in Sources */,
+				2597297A1C22CCE200432C27 /* GameScene.swift in Sources */,
 				259729651C201A3100432C27 /* ChangeSceneProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
