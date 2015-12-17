@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
     }
     
     func switchingGameScene() {
-        let scene = SceneManager.gameScene(self.view.bounds.size)
+        let scene = SceneManager.stageScene(self.view.bounds.size)
         scene.changeSceneDelegate = self
         SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
     }
@@ -71,6 +71,10 @@ extension GameViewController: ChangeSceneProtocol {
             return
         }
         if (scene.isKindOfClass(GameScene)) {
+            self.switchingStageSelectScene()
+            return
+        }
+        if (scene.isKindOfClass(BaseStage)) {
             self.switchingStageSelectScene()
             return
         }

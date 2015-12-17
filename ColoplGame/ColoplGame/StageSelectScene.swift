@@ -51,6 +51,7 @@ class StageSelectScene: SKScene {
             stageButton.layer.cornerRadius = CGFloat(buttonSize / 2.0) // 丸くする
             stageButton.layer.borderWidth = 1.0
             stageButton.addTarget(self, action: "showStage:", forControlEvents: .TouchUpInside)
+            stageButton.tag = Int(i + 1)
             self.scrollView.addSubview(stageButton)
         }
         // 増えたボタンの分だけスクロールできるようにする
@@ -58,6 +59,7 @@ class StageSelectScene: SKScene {
     }
     
     func showStage(sender: UIButton) {
+        SceneManager.stageIndex = sender.tag
         changeSceneDelegate.changeScene(self)
         if (self.scrollView.hidden) {
             return

@@ -10,6 +10,9 @@ import UIKit
 import SpriteKit
 
 class SceneManager: NSObject {
+    
+    // 現在選択されているインデックス
+    static var stageIndex = 0
 
     // スタートシーン
     class func startScene(size: CGSize) -> StartScene {
@@ -17,9 +20,10 @@ class SceneManager: NSObject {
         return scene
     }
     
-    // ゲームシーン
-    class func gameScene(size: CGSize) -> GameScene {
-        let scene = GameScene(size: size)
+    // ステージシーン
+    class func stageScene(size: CGSize) -> BaseStage {
+        // ステージインデックスからステージシーンを選択するようにする(未実装)
+        let scene = Stage1(size: size)
         return scene
     }
     
