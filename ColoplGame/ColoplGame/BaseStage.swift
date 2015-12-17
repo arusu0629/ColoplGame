@@ -11,19 +11,50 @@ import SpriteKit
 
 class BaseStage: SKScene {
     
+    let motionManager = MyCMMotionManager()
+    let playerBall = PlayerBall(circleOfRadius: 10)
+    let goalArea = GoalArea(rectOfSize: CGSize(width: 50, height: 50))
+    
     var changeSceneDelegate: ChangeSceneProtocol!
     var clearFlag = false
     
     override init() {
         super.init()
         self.backgroundColor = UIColor.whiteColor()
+        self.physicsWorld.contactDelegate = self
         self.configureStage()
     }
     
     override init(size: CGSize) {
         super.init(size: size)
         self.backgroundColor = UIColor.whiteColor()
+        self.physicsWorld.contactDelegate = self
         self.configureStage()
+    }
+    
+    override func didMoveToView(view: SKView) {
+        self.motionManager.startAccelerometerUpdate()
+        self.configurePlayerBall()
+        self.configureGoalArea()
+    }
+    
+    override func update(currentTime: NSTimeInterval) {        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (self.clearFlag) {
+            self.changeSceneDelegate.changeScene(self)
+            return
+        }
+        self.playerBall.jump()
+    }
+    
+    func configurePlayerBall() {
+        self.playerBall.configureBall()
+    }
+    
+    func configureGoalArea() {
+        self.goalArea.configure()
     }
     
     func configureStage() {
@@ -33,7 +64,40 @@ class BaseStage: SKScene {
         self.name = "GameSceneArea"
     }
     
+    // 子クラスのデリゲートメソッドの時の呼ばれる(ゴールエリアと衝突した時)
+    func showClearLabel() {
+        if (self.clearFlag) {
+            return
+        }
+        
+        self.clearFlag = true
+        
+        let clearLabel = ClearLabel(fontNamed: "Helvetica Bold")
+        let size = self.frame.size
+        let pos = CGPoint(x: size.width / 2, y: size.height / 2)
+        clearLabel.position = pos
+        self.addChild(clearLabel)
+        
+        let label = FadeInOutLabel(text: "Touch to Next Game!!!", fontName: "Helvetica")
+        label.position = CGPoint(x: clearLabel.position.x, y: clearLabel.position.y - clearLabel.frame.size.height)
+        self.addChild(label)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension BaseStage: SKPhysicsContactDelegate {
+    func didBeginContact(contact: SKPhysicsContact) {
+        let success = (contact.bodyA.node == self.playerBall && contact.bodyB.node == self.goalArea) || (contact.bodyA.node == self.goalArea && contact.bodyB.node == self.playerBall)
+        if (success) {
+            self.showClearLabel()
+            return
+        }
+        // 地面についたらダブルジャンプの回数をリセットする
+        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self) || (contact.bodyA.node == self && contact.bodyB.node == self.playerBall)) {
+            self.playerBall.resetJumpCount()
+        }
     }
 }
