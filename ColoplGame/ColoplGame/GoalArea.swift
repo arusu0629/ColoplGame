@@ -23,8 +23,4 @@ class GoalArea: SKShapeNode {
         self.physicsBody?.contactTestBitMask = GameScene.ColliderType.PlayerBall
         self.name = "GoalArea"
     }
-    
-    func setPos(position: CGPoint) {
-        self.position = position
-    }
 }
