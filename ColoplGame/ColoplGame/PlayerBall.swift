@@ -11,6 +11,9 @@ import SpriteKit
 
 class PlayerBall: SKShapeNode {
     
+    private var jumpRestCount = 2
+    private let jumpPower = 5
+    
     func configureBall() {
         self.fillColor = UIColor.redColor()
         self.strokeColor = UIColor.blackColor()
@@ -23,8 +26,16 @@ class PlayerBall: SKShapeNode {
         
         self.name = "PlayerBall"
     }
+
+    func jump() {
+        if (self.jumpRestCount == 0) {
+            return
+        }
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: self.jumpPower))
+        self.jumpRestCount--
+    }
     
-    func setStartPosition(postion: CGPoint) {
-        self.position = position
+    func resetJumpCount() {
+        self.jumpRestCount = 2
     }
 }
