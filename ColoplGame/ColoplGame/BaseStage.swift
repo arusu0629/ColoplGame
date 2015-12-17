@@ -14,6 +14,7 @@ class BaseStage: SKScene {
     let motionManager = MyCMMotionManager()
     let playerBall = PlayerBall(circleOfRadius: 10)
     let goalArea = GoalArea(rectOfSize: CGSize(width: 50, height: 50))
+    let ground = SKShapeNode(rectOfSize: CGSize(width: 1000, height: 1))
     
     var changeSceneDelegate: ChangeSceneProtocol!
     var clearFlag = false
@@ -39,7 +40,8 @@ class BaseStage: SKScene {
         self.configureGoalArea()
     }
     
-    override func update(currentTime: NSTimeInterval) {        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
+    override func update(currentTime: NSTimeInterval) {
+        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -68,6 +70,13 @@ class BaseStage: SKScene {
         self.physicsBody?.dynamic = false
         self.physicsBody?.categoryBitMask = GameScene.ColliderType.World
         self.name = "GameSceneArea"
+        
+        self.ground.position = CGPoint(x: 0, y: 0)
+        self.ground.physicsBody = SKPhysicsBody(rectangleOfSize: self.ground.frame.size)
+        self.ground.physicsBody?.dynamic = false
+        self.ground.physicsBody?.categoryBitMask = GameScene.ColliderType.Ground
+        self.ground.name = "Ground"
+        self.addChild(ground)
     }
     
     // 子クラスのデリゲートメソッドの時の呼ばれる(ゴールエリアと衝突した時)
@@ -102,7 +111,7 @@ extension BaseStage: SKPhysicsContactDelegate {
             return
         }
         // 地面についたらダブルジャンプの回数をリセットする
-        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self) || (contact.bodyA.node == self && contact.bodyB.node == self.playerBall)) {
+        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self.ground) || (contact.bodyA.node == self.ground && contact.bodyB.node == self.playerBall)) {
             self.playerBall.resetJumpCount()
         }
     }

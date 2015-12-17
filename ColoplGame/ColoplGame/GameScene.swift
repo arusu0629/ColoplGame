@@ -14,6 +14,7 @@ class GameScene: NSObject {
         static let GoalArea: UInt32 = (1 << 1)
         static let World: UInt32 = (1 << 2)
         static let Other: UInt32 = (1 << 3)
-        static let None: UInt32 = (1 << 4)
+        static let Ground: UInt32 = (1 << 4)
+        static let None: UInt32 = (1 << 5)
     }
 }
