@@ -17,6 +17,7 @@ class BaseStage: SKScene {
     
     var changeSceneDelegate: ChangeSceneProtocol!
     var clearFlag = false
+    var clearLabelTapped = false
     
     override init() {
         super.init()
@@ -42,11 +43,16 @@ class BaseStage: SKScene {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (self.clearFlag) {
-            self.changeSceneDelegate.changeScene(self)
+        if (self.clearFlag && !clearLabelTapped) {
+            self.clearLabelTapped = true
+            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "changeScene", userInfo: nil, repeats: false)
             return
         }
         self.playerBall.jump()
+    }
+    
+    func changeScene() {
+        self.changeSceneDelegate.changeScene(self)
     }
     
     func configurePlayerBall() {
