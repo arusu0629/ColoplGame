@@ -16,6 +16,7 @@ class Obstacle: SKShapeNode {
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
         self.physicsBody?.dynamic = false
         self.physicsBody?.categoryBitMask = GameScene.ColliderType.Other
+        self.physicsBody?.collisionBitMask = GameScene.ColliderType.GoalArea
         self.name = "Obstacle"
         
         self.createGround()

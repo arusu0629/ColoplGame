@@ -11,6 +11,7 @@
 		25804DBA1C23B0D100DDFB8E /* HintLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DB91C23B0D100DDFB8E /* HintLabel.swift */; };
 		25804DBC1C2407DA00DDFB8E /* Stage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DBB1C2407DA00DDFB8E /* Stage4.swift */; };
 		25804DBE1C240F5A00DDFB8E /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DBD1C240F5A00DDFB8E /* Obstacle.swift */; };
+		25804DC01C241B9300DDFB8E /* Stage5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DBF1C241B9300DDFB8E /* Stage5.swift */; };
 		2597295F1C2006C300432C27 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597295E1C2006C300432C27 /* StartScene.swift */; };
 		259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729601C200A0D00432C27 /* StageSelectScene.swift */; };
 		259729631C20196E00432C27 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729621C20196E00432C27 /* SceneManager.swift */; };
@@ -56,6 +57,7 @@
 		25804DB91C23B0D100DDFB8E /* HintLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintLabel.swift; sourceTree = "<group>"; };
 		25804DBB1C2407DA00DDFB8E /* Stage4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage4.swift; sourceTree = "<group>"; };
 		25804DBD1C240F5A00DDFB8E /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		25804DBF1C241B9300DDFB8E /* Stage5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage5.swift; sourceTree = "<group>"; };
 		2597295E1C2006C300432C27 /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		259729601C200A0D00432C27 /* StageSelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectScene.swift; sourceTree = "<group>"; };
 		259729621C20196E00432C27 /* SceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				2597297B1C23998500432C27 /* Stage2.swift */,
 				25804DB71C23AD4200DDFB8E /* Stage3.swift */,
 				25804DBB1C2407DA00DDFB8E /* Stage4.swift */,
+				25804DBF1C241B9300DDFB8E /* Stage5.swift */,
 			);
 			name = Stage;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				259729761C22C58800432C27 /* FadeInOutLabel.swift in Sources */,
 				2597296C1C22B85A00432C27 /* PlayerBall.swift in Sources */,
 				25804DBC1C2407DA00DDFB8E /* Stage4.swift in Sources */,
+				25804DC01C241B9300DDFB8E /* Stage5.swift in Sources */,
 				2597296E1C22BB7900432C27 /* GoalArea.swift in Sources */,
 				259729681C2022B500432C27 /* GameViewController.swift in Sources */,
 				259729711C22BD2500432C27 /* Stage1.swift in Sources */,
