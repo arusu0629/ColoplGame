@@ -15,7 +15,7 @@ class StageSelectScene: SKScene {
     
     let buttonWidthMargin = 20.0 // ボタンの横間隔
     let buttonHeightMargin = 50.0 // ボタンの縦間隔
-    let buttonNumPerColumn = 4.0 // 1行に並べるボタンの数
+    let buttonNumPerColumn = 3.0 // 1行に並べるボタンの数
     var buttonColumnNum = 0.0 // ボタンの数による行数
     let screenWidth = Double(UIScreen.mainScreen().bounds.size.width)
     
