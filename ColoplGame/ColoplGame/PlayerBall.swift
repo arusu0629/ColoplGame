@@ -12,7 +12,7 @@ import SpriteKit
 class PlayerBall: SKShapeNode {
     
     private var jumpRestCount = 2
-    private let jumpPower = 5
+    private let jumpPower: CGFloat = 500
     
     func configureBall() {
         self.fillColor = UIColor.redColor()
@@ -31,7 +31,8 @@ class PlayerBall: SKShapeNode {
         if (self.jumpRestCount == 0) {
             return
         }
-        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: self.jumpPower))
+        //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: self.jumpPower))
+        self.physicsBody?.velocity.dy = self.jumpPower
         self.jumpRestCount--
     }
     
