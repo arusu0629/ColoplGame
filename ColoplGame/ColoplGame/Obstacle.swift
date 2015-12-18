@@ -23,7 +23,7 @@ class Obstacle: SKShapeNode {
     }
     
     func createGround() {
-        let ground = SKShapeNode(rectOfSize: CGSize(width: self.frame.size.width, height: 0.1))
+        let ground = SKShapeNode(rectOfSize: CGSize(width: self.frame.size.width, height: 1.0))
         ground.position = CGPoint(x: 0, y: self.frame.size.height / 2)
         ground.fillColor = UIColor.yellowColor()
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.frame.size)

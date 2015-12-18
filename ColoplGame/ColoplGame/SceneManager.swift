@@ -31,6 +31,7 @@ class SceneManager: NSObject {
             case 3: scene = Stage3(size: size)
             case 4: scene = Stage4(size: size)
             case 5: scene = Stage5(size: size)
+            case 6: scene = Stage6(size: size)
             default: break
         }
         return scene

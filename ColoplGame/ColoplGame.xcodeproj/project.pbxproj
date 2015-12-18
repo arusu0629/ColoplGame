@@ -33,6 +33,7 @@
 		25B4CF211C1D2D6600E6E9C7 /* ColoplGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF201C1D2D6600E6E9C7 /* ColoplGameUITests.swift */; };
 		25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */; };
 		25B4CF341C1D317A00E6E9C7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */; };
+		25FE52211C2420A700B8F1B7 /* Stage6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52201C2420A700B8F1B7 /* Stage6.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		25B4CF221C1D2D6600E6E9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCMMotionManager.swift; sourceTree = "<group>"; };
 		25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		25FE52201C2420A700B8F1B7 /* Stage6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage6.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				25804DB71C23AD4200DDFB8E /* Stage3.swift */,
 				25804DBB1C2407DA00DDFB8E /* Stage4.swift */,
 				25804DBF1C241B9300DDFB8E /* Stage5.swift */,
+				25FE52201C2420A700B8F1B7 /* Stage6.swift */,
 			);
 			name = Stage;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				2597295F1C2006C300432C27 /* StartScene.swift in Sources */,
 				259729731C22C06800432C27 /* BaseStage.swift in Sources */,
 				259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */,
+				25FE52211C2420A700B8F1B7 /* Stage6.swift in Sources */,
 				25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */,
 				259729761C22C58800432C27 /* FadeInOutLabel.swift in Sources */,
 				2597296C1C22B85A00432C27 /* PlayerBall.swift in Sources */,
