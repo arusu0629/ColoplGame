@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25804DB81C23AD4200DDFB8E /* Stage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DB71C23AD4200DDFB8E /* Stage3.swift */; };
+		25804DBA1C23B0D100DDFB8E /* HintLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DB91C23B0D100DDFB8E /* HintLabel.swift */; };
 		2597295F1C2006C300432C27 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597295E1C2006C300432C27 /* StartScene.swift */; };
 		259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729601C200A0D00432C27 /* StageSelectScene.swift */; };
 		259729631C20196E00432C27 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729621C20196E00432C27 /* SceneManager.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		25804DB71C23AD4200DDFB8E /* Stage3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage3.swift; sourceTree = "<group>"; };
+		25804DB91C23B0D100DDFB8E /* HintLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintLabel.swift; sourceTree = "<group>"; };
 		2597295E1C2006C300432C27 /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		259729601C200A0D00432C27 /* StageSelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectScene.swift; sourceTree = "<group>"; };
 		259729621C20196E00432C27 /* SceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				259729751C22C58800432C27 /* FadeInOutLabel.swift */,
 				259729771C22C6D800432C27 /* ClearLabel.swift */,
+				25804DB91C23B0D100DDFB8E /* HintLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				259729631C20196E00432C27 /* SceneManager.swift in Sources */,
 				2597297A1C22CCE200432C27 /* GameScene.swift in Sources */,
 				2597297C1C23998500432C27 /* Stage2.swift in Sources */,
+				25804DBA1C23B0D100DDFB8E /* HintLabel.swift in Sources */,
 				25804DB81C23AD4200DDFB8E /* Stage3.swift in Sources */,
 				259729651C201A3100432C27 /* ChangeSceneProtocol.swift in Sources */,
 			);

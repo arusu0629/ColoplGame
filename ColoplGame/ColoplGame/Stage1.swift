@@ -16,6 +16,7 @@ class Stage1: BaseStage {
         super.didMoveToView(view)
         self.setPlayerBallPosition()
         self.setGoalAreaPosition()
+        self.setHintLabel()
     }
     
     func setPlayerBallPosition() {
@@ -32,5 +33,14 @@ class Stage1: BaseStage {
         let pos = CGPoint(x: self.frame.size.width - (size.width / 2), y: size.height / 2)
         self.goalArea.position = pos
         self.addChild(self.goalArea)
+    }
+    
+    func setHintLabel() {
+        let text = "スマートフォンを左右に傾けるとボールが転がるぞ！"
+        let label = HintLabel(text: text, fontName: "Helvetica Bold")
+        let size = label.frame.size
+        let pos = CGPoint(x: (self.frame.size.width / 2) - (size.width / 2), y: self.frame.size.height - (size.height * 2))
+        label.position = pos
+        self.addChild(label)
     }
 }

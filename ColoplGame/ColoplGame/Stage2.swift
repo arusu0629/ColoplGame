@@ -10,10 +10,12 @@ import UIKit
 import SpriteKit
 
 class Stage2: BaseStage {
+
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         self.setPlayerBallPosition()
         self.setGoalAreaPosition()
+        self.setHintLabel()
     }
     
     func setPlayerBallPosition() {
@@ -30,5 +32,14 @@ class Stage2: BaseStage {
         let pos = CGPoint(x: size.width / 2, y: size.height)
         self.goalArea.position = pos
         self.addChild(self.goalArea)
+    }
+    
+    func setHintLabel() {
+        let text = "タップするとボールがジャンプするぞ！"
+        let label = HintLabel(text: text, fontName: "Helvetica Bold")
+        let size = label.frame.size
+        let pos = CGPoint(x: (self.frame.size.width / 2) - (size.width / 2), y: self.frame.size.height - (size.height * 2))
+        label.position = pos
+        self.addChild(label)
     }
 }
