@@ -108,13 +108,14 @@ class BaseStage: SKScene {
 
 extension BaseStage: SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
+        print("nodeA = \(contact.bodyA.node?.name) nodeB = \(contact.bodyB.node?.name)")
         let success = (contact.bodyA.node == self.playerBall && contact.bodyB.node == self.goalArea) || (contact.bodyA.node == self.goalArea && contact.bodyB.node == self.playerBall)
         if (success) {
             self.showClearLabel()
             return
         }
         // 地面についたらダブルジャンプの回数をリセットする
-        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self.ground) || (contact.bodyA.node == self.ground && contact.bodyB.node == self.playerBall)) {
+        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node?.name == "Ground") || (contact.bodyA.node?.name == "Ground" && contact.bodyB.node == self.playerBall)) {
             self.playerBall.resetJumpCount()
         }
     }
