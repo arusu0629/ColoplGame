@@ -1,17 +1,15 @@
 //
-//  Stage1.swift
+//  Stage2.swift
 //  ColoplGame
 //
-//  Created by ToruNakandakari on H27/12/17.
+//  Created by ToruNakandakari on H27/12/18.
 //  Copyright © 平成27年 ToruNakandakari. All rights reserved.
 //
 
 import UIKit
 import SpriteKit
 
-// ステージ1のシーン
-class Stage1: BaseStage {
-    
+class Stage2: BaseStage {
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         self.setPlayerBallPosition()
@@ -19,17 +17,17 @@ class Stage1: BaseStage {
     }
     
     func setPlayerBallPosition() {
-        // ボールのスタートポジション(左下)
+        // ボールのスタートポジション(右下)
         let size = self.playerBall.frame.size
-        let startPosition = CGPoint(x: size.width / 2, y: size.height / 2)
+        let startPosition = CGPoint(x: self.frame.size.width - (size.width / 2), y: size.height / 2)
         self.playerBall.position = startPosition
         self.addChild(self.playerBall)
     }
     
     func setGoalAreaPosition() {
-        // ゴールエリアのポジション(右下)
+        // ゴールエリアのポジションを決める
         let size = self.goalArea.frame.size
-        let pos = CGPoint(x: self.frame.size.width - (size.width / 2), y: size.height / 2)
+        let pos = CGPoint(x: size.width / 2, y: size.height)
         self.goalArea.position = pos
         self.addChild(self.goalArea)
     }

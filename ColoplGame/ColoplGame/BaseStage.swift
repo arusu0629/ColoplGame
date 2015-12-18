@@ -76,6 +76,9 @@ class BaseStage: SKScene {
         self.ground.physicsBody?.dynamic = false
         self.ground.physicsBody?.categoryBitMask = GameScene.ColliderType.Ground
         self.ground.name = "Ground"
+
+        self.ground.removeFromParent() // you don't add it twice to its parent, SKScene
+        
         self.addChild(ground)
     }
     

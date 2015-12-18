@@ -12,7 +12,7 @@ import SpriteKit
 class SceneManager: NSObject {
     
     // 現在選択されているインデックス
-    static var stageIndex = 0
+    private static var stageIndex = 0
 
     // スタートシーン
     class func startScene(size: CGSize) -> StartScene {
@@ -22,8 +22,14 @@ class SceneManager: NSObject {
     
     // ステージシーン
     class func stageScene(size: CGSize) -> BaseStage {
-        // ステージインデックスからステージシーンを選択するようにする(未実装)
-        let scene = Stage1(size: size)
+        // ステージインデックスからステージシーンを選択するようにする
+        var scene: BaseStage = Stage1(size: size)
+        switch (stageIndex) {
+            case 0: scene = Stage1(size: size)
+            case 1: scene = Stage1(size: size)
+            case 2: scene = Stage2(size: size)
+            default: break
+        }
         return scene
     }
     
@@ -37,5 +43,9 @@ class SceneManager: NSObject {
     class func changeScene(view: SKView, New newScene: SKScene, Duration sec: NSTimeInterval) {
         let transition = SKTransition.fadeWithDuration(sec)
         view.presentScene(newScene, transition: transition)
+    }
+    
+    class func setStageIndex(index: Int) {
+        stageIndex = index
     }
 }

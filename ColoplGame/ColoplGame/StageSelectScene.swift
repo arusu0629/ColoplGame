@@ -60,7 +60,7 @@ class StageSelectScene: SKScene {
     }
     
     func showStage(sender: UIButton) {
-        SceneManager.stageIndex = sender.tag
+        SceneManager.setStageIndex(sender.tag)
         changeSceneDelegate.changeScene(self)
         if (self.scrollView.hidden) {
             return
