@@ -18,6 +18,10 @@ class GameViewController: UIViewController {
         
         self.gameView = self.view as! SKView
         self.gameView.backgroundColor = UIColor.whiteColor()
+        
+        // ナビゲーションバーを非表示する
+        self.navigationController?.navigationBarHidden = true
+        
         self.switchingStartScene()
     }
     
@@ -37,6 +41,8 @@ class GameViewController: UIViewController {
         let scene = SceneManager.stageScene(self.view.bounds.size)
         scene.changeSceneDelegate = self
         SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
+        // ゲーム中にはナビゲーションバーを表示する
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewDidAppear(animated: Bool) {
