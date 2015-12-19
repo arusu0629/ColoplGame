@@ -22,7 +22,7 @@ class Stage1: BaseStage {
     func setPlayerBallPosition() {
         // ボールのスタートポジション(左下)
         let size = self.playerBall.frame.size
-        let startPosition = CGPoint(x: size.width / 2, y: size.height / 2)
+        let startPosition = PositionHelper.getPosition(pos: .LowerLeft, sourceView: self, size: size)
         self.playerBall.position = startPosition
         self.addChild(self.playerBall)
     }
@@ -30,7 +30,7 @@ class Stage1: BaseStage {
     func setGoalAreaPosition() {
         // ゴールエリアのポジション(右下)
         let size = self.goalArea.frame.size
-        let pos = CGPoint(x: self.frame.size.width - (size.width / 2), y: size.height / 2)
+        let pos = PositionHelper.getPosition(pos: .LowerRight, sourceView: self, size: size)
         self.goalArea.position = pos
         self.addChild(self.goalArea)
     }

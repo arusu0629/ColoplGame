@@ -21,7 +21,7 @@ class Stage3: BaseStage {
     func setPlayerBallPosition() {
         // ボールのスタートポジション(中央下)
         let size = self.playerBall.frame.size
-        let startPosition = CGPoint(x: self.frame.size.width / 2 - (size.width / 2), y: size.height / 2)
+        let startPosition = PositionHelper.getPosition(pos: .Lower, sourceView: self, size: size)
         self.playerBall.position = startPosition
         self.addChild(self.playerBall)
     }

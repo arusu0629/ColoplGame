@@ -54,16 +54,17 @@ class Stage6: BaseStage {
     }
     
     func setPlayerBallPosition() {
-        // 画面左下に配置
-        let pos = CGPoint(x: self.playerBall.frame.size.width / 2, y: self.playerBall.frame.size.height / 2)
+        // ボールのスタートポジション(左下)
+        let size = self.playerBall.frame.size
+        let pos = PositionHelper.getPosition(pos: .LowerLeft, sourceView: self, size: size)
         self.playerBall.position = pos
         self.addChild(playerBall)
     }
     
     func setGoalAreaPosition() {
         // 画面左上に配置
-        let size = self.frame.size
-        let pos = CGPoint(x: self.goalArea.frame.size.width / 2, y: size.height - (self.goalArea.frame.size.height / 2))
+        let size = self.goalArea.frame.size
+        let pos = PositionHelper.getPosition(pos: .UpperLeft, sourceView: self, size: size)
         self.goalArea.position = pos
         self.addChild(self.goalArea)
     }
