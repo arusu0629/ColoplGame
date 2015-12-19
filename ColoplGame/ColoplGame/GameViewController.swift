@@ -13,16 +13,28 @@ class GameViewController: UIViewController {
     
     var gameView: SKView!
     
+    private var myLeftButton: UIBarButtonItem!
+    private var myRightButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.gameView = self.view as! SKView
         self.gameView.backgroundColor = UIColor.whiteColor()
         
+        self.configureNavigationBar()
+        
         // ナビゲーションバーを非表示する
         self.navigationController?.navigationBarHidden = true
         
         self.switchingStartScene()
+    }
+    
+    func configureNavigationBar() {
+        self.myLeftButton = UIBarButtonItem(title: "Replay", style: .Plain, target: self, action: "replay")
+        self.myRightButton = UIBarButtonItem(title: "Exit", style: .Plain, target: self, action: "exit")
+        self.navigationItem.leftBarButtonItem = self.myLeftButton
+        self.navigationItem.rightBarButtonItem = self.myRightButton
     }
     
     func switchingStartScene() {
@@ -35,6 +47,10 @@ class GameViewController: UIViewController {
         let scene = SceneManager.stageSelectScene(self.view.bounds.size)
         scene.changeSceneDelegate = self
         SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
+        // ナビゲーションバーが表示されている場合は非表示にする
+        if (!self.navigationController!.navigationBarHidden) {
+            self.navigationController?.navigationBarHidden = true
+        }
     }
     
     func switchingGameScene() {
@@ -43,6 +59,16 @@ class GameViewController: UIViewController {
         SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
         // ゲーム中にはナビゲーションバーを表示する
         self.navigationController?.navigationBarHidden = false
+    }
+    
+    func replay() {
+        // ゲーム画面を再ロードする
+        self.switchingGameScene()
+    }
+    
+    func exit() {
+        // ステージ選択画面に戻る
+        self.switchingStageSelectScene()
     }
     
     override func viewDidAppear(animated: Bool) {
