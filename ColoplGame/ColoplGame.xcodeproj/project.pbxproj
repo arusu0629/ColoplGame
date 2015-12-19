@@ -34,6 +34,7 @@
 		25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */; };
 		25B4CF341C1D317A00E6E9C7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */; };
 		25FE52211C2420A700B8F1B7 /* Stage6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52201C2420A700B8F1B7 /* Stage6.swift */; };
+		25FE52241C25184400B8F1B7 /* PositionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52231C25184400B8F1B7 /* PositionHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		25B4CF311C1D2F3E00E6E9C7 /* MyCMMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCMMotionManager.swift; sourceTree = "<group>"; };
 		25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		25FE52201C2420A700B8F1B7 /* Stage6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage6.swift; sourceTree = "<group>"; };
+		25FE52231C25184400B8F1B7 /* PositionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		25B4CEFB1C1D2D6600E6E9C7 /* ColoplGame */ = {
 			isa = PBXGroup;
 			children = (
+				25FE52221C25183600B8F1B7 /* Helper */,
 				25B4CF0C1C1D2D6600E6E9C7 /* Info.plist */,
 				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
 				259729791C22CCE200432C27 /* GameScene.swift */,
@@ -240,6 +243,14 @@
 				259729621C20196E00432C27 /* SceneManager.swift */,
 			);
 			name = Manager;
+			sourceTree = "<group>";
+		};
+		25FE52221C25183600B8F1B7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				25FE52231C25184400B8F1B7 /* PositionHelper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +388,7 @@
 				2597295F1C2006C300432C27 /* StartScene.swift in Sources */,
 				259729731C22C06800432C27 /* BaseStage.swift in Sources */,
 				259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */,
+				25FE52241C25184400B8F1B7 /* PositionHelper.swift in Sources */,
 				25FE52211C2420A700B8F1B7 /* Stage6.swift in Sources */,
 				25B4CF321C1D2F3E00E6E9C7 /* MyCMMotionManager.swift in Sources */,
 				259729761C22C58800432C27 /* FadeInOutLabel.swift in Sources */,
