@@ -41,7 +41,11 @@ class BaseStage: SKScene {
     }
     
     override func update(currentTime: NSTimeInterval) {
-        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
+//        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
+
+        // 力を加えないで速度で横移動を行うようにした
+        let moveX = CGFloat(self.motionManager.accelerationX * 400)
+        self.playerBall.physicsBody?.velocity.dx = moveX
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
