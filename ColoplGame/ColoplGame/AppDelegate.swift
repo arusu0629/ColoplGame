@@ -15,8 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // 初めてのログイン時
+        let data = RealmHelper.getAllClearData()
+        if (data.count == 0) {
+            // ステージデータを初期化してDBに登録する
+            self.initStageData()
+        }
         // Override point for customization after application launch.
         return true
+    }
+    
+    func initStageData() {
+        for (var i = 0; i < 30; i++) {
+            let name = "Stage \(i+1)"
+            let stageData = StageClearData()
+            stageData.id = i + 1
+            stageData.name = name
+            RealmHelper.add(stageData)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
