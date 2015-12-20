@@ -47,7 +47,7 @@ class StageSelectScene: SKScene {
             let stageButton = UIButton(frame: buttonRect)
             stageButton.setTitle("Stage \(Int(i + 1))", forState: .Normal)
             stageButton.setTitleColor(UIColor.redColor(), forState: .Normal)
-            stageButton.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 10)
+            stageButton.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 14)
             stageButton.backgroundColor = UIColor.whiteColor()
             stageButton.layer.cornerRadius = CGFloat(buttonSize / 2.0) // 丸くする
             stageButton.layer.borderWidth = 1.0
