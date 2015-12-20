@@ -36,7 +36,7 @@ class Stage5: BaseStage {
         self.addChild(self.obstacle)
         
         // 常時上下に移動させる
-        let up = SKAction.moveToY(self.frame.size.height, duration: 3.0)
+        let up = SKAction.moveToY(self.frame.size.height - self.goalArea.frame.size.height, duration: 3.0)
         let down = SKAction.moveToY(self.frame.size.height / 6, duration: 3.0)
         let repeatAction = SKAction.repeatActionForever(SKAction.sequence([up, down]))
         self.obstacle.runAction(repeatAction)
