@@ -12,7 +12,7 @@ import SpriteKit
 class SceneManager: NSObject {
     
     // 現在選択されているインデックス
-    private static var stageIndex = 0
+    private static var stageIndex = 1
 
     // スタートシーン
     class func startScene(size: CGSize) -> StartScene {
@@ -23,15 +23,14 @@ class SceneManager: NSObject {
     // ステージシーン
     class func stageScene(size: CGSize) -> BaseStage {
         // ステージインデックスからステージシーンを選択するようにする
-        var scene: BaseStage = Stage1(size: size)
+        var scene: BaseStage = Stage1(size: size, id: stageIndex)
         switch (stageIndex) {
-            case 0: scene = Stage1(size: size)
-            case 1: scene = Stage1(size: size)
-            case 2: scene = Stage2(size: size)
-            case 3: scene = Stage3(size: size)
-            case 4: scene = Stage4(size: size)
-            case 5: scene = Stage5(size: size)
-            case 6: scene = Stage6(size: size)
+            case 1: scene = Stage1(size: size, id: stageIndex)
+            case 2: scene = Stage2(size: size, id: stageIndex)
+            case 3: scene = Stage3(size: size, id: stageIndex)
+            case 4: scene = Stage4(size: size, id: stageIndex)
+            case 5: scene = Stage5(size: size, id: stageIndex)
+            case 6: scene = Stage6(size: size, id: stageIndex)
             default: break
         }
         return scene

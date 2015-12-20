@@ -35,6 +35,9 @@
 		25B4CF341C1D317A00E6E9C7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */; };
 		25FE52211C2420A700B8F1B7 /* Stage6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52201C2420A700B8F1B7 /* Stage6.swift */; };
 		25FE52241C25184400B8F1B7 /* PositionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52231C25184400B8F1B7 /* PositionHelper.swift */; };
+		25FE52261C26803900B8F1B7 /* StageClearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52251C26803900B8F1B7 /* StageClearData.swift */; };
+		25FE522A1C2681A300B8F1B7 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FE52291C2681A300B8F1B7 /* RealmHelper.swift */; };
+		25FE522D1C268B5A00B8F1B7 /* Good.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FE522C1C268B5A00B8F1B7 /* Good.jpg */; };
 		EBBED9F9D5A01F3CAD27DE28 /* Pods_ColoplGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC18AC249BBEC0577C42234 /* Pods_ColoplGame.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +93,9 @@
 		25B4CF331C1D317A00E6E9C7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		25FE52201C2420A700B8F1B7 /* Stage6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage6.swift; sourceTree = "<group>"; };
 		25FE52231C25184400B8F1B7 /* PositionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionHelper.swift; sourceTree = "<group>"; };
+		25FE52251C26803900B8F1B7 /* StageClearData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageClearData.swift; sourceTree = "<group>"; };
+		25FE52291C2681A300B8F1B7 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		25FE522C1C268B5A00B8F1B7 /* Good.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Good.jpg; sourceTree = "<group>"; };
 		4EC18AC249BBEC0577C42234 /* Pods_ColoplGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColoplGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8607BDF35D43609AFA52745E /* Pods-ColoplGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColoplGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColoplGame/Pods-ColoplGame.release.xcconfig"; sourceTree = "<group>"; };
 		E861E574A478CEDDB5266636 /* Pods-ColoplGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColoplGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColoplGame/Pods-ColoplGame.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				2597296B1C22B85A00432C27 /* PlayerBall.swift */,
 				2597296D1C22BB7900432C27 /* GoalArea.swift */,
 				25804DBD1C240F5A00DDFB8E /* Obstacle.swift */,
+				25FE52251C26803900B8F1B7 /* StageClearData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 		25B4CEFB1C1D2D6600E6E9C7 /* ColoplGame */ = {
 			isa = PBXGroup;
 			children = (
+				25FE522B1C268B3100B8F1B7 /* Figure */,
 				25FE52221C25183600B8F1B7 /* Helper */,
 				25B4CF0C1C1D2D6600E6E9C7 /* Info.plist */,
 				25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */,
@@ -256,8 +264,17 @@
 			isa = PBXGroup;
 			children = (
 				25FE52231C25184400B8F1B7 /* PositionHelper.swift */,
+				25FE52291C2681A300B8F1B7 /* RealmHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		25FE522B1C268B3100B8F1B7 /* Figure */ = {
+			isa = PBXGroup;
+			children = (
+				25FE522C1C268B5A00B8F1B7 /* Good.jpg */,
+			);
+			name = Figure;
 			sourceTree = "<group>";
 		};
 		4DDCA5F0DEDE16D420C434A0 /* Pods */ = {
@@ -385,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B4CF0B1C1D2D6600E6E9C7 /* LaunchScreen.storyboard in Resources */,
+				25FE522D1C268B5A00B8F1B7 /* Good.jpg in Resources */,
 				25B4CF081C1D2D6600E6E9C7 /* Assets.xcassets in Resources */,
 				25B4CF061C1D2D6600E6E9C7 /* Main.storyboard in Resources */,
 			);
@@ -472,7 +490,9 @@
 				25804DC01C241B9300DDFB8E /* Stage5.swift in Sources */,
 				2597296E1C22BB7900432C27 /* GoalArea.swift in Sources */,
 				259729681C2022B500432C27 /* GameViewController.swift in Sources */,
+				25FE522A1C2681A300B8F1B7 /* RealmHelper.swift in Sources */,
 				259729711C22BD2500432C27 /* Stage1.swift in Sources */,
+				25FE52261C26803900B8F1B7 /* StageClearData.swift in Sources */,
 				25B4CEFD1C1D2D6600E6E9C7 /* AppDelegate.swift in Sources */,
 				259729631C20196E00432C27 /* SceneManager.swift in Sources */,
 				2597297A1C22CCE200432C27 /* GameScene.swift in Sources */,
