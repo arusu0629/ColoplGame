@@ -19,11 +19,14 @@ class StageSelectScene: SKScene {
     var buttonColumnNum = 0.0 // ボタンの数による行数
     let screenWidth = Double(UIScreen.mainScreen().bounds.size.width)
     
-    let buttonNum = 50.0 // 今はテストとして50個のステージボタンを配置する
+    let buttonNum = 30.0 // 今はテストとして30個のステージボタンを配置する
     
     var scrollView: UIScrollView!
     
     override func didMoveToView(view: SKView) {
+        for (var i = 0; i < RealmHelper.getAllClearData().count; i++) {
+            print(RealmHelper.getAllClearData()[i])
+        }
         self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
         
         // スクロールビュー
@@ -36,6 +39,10 @@ class StageSelectScene: SKScene {
     }
     
     func showStageButton() {
+        
+        let stageDataArray = RealmHelper.getAllClearData()
+        let clearImage = UIImage(named: "Good.jpg")
+        
         // ボタンのサイズを決定
         let buttonSize = (self.screenWidth - self.buttonWidthMargin * (self.buttonNumPerColumn + 1)) / self.buttonNumPerColumn
         // ボタンの作成
@@ -53,6 +60,12 @@ class StageSelectScene: SKScene {
             stageButton.layer.borderWidth = 1.0
             stageButton.addTarget(self, action: "showStage:", forControlEvents: .TouchUpInside)
             stageButton.tag = Int(i + 1)
+
+            let stageData = stageDataArray[Int(i)]
+            // クリアしている場合はクリア画像をボタンに載っける
+            if (stageData.isClear) {
+                stageButton.setImage(clearImage, forState: .Normal)
+            }
             self.scrollView.addSubview(stageButton)
         }
         // 増えたボタンの分だけスクロールできるようにする

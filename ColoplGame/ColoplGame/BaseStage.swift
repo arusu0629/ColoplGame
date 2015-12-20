@@ -15,6 +15,7 @@ class BaseStage: SKScene {
     let playerBall = PlayerBall(circleOfRadius: 10)
     let goalArea = GoalArea(rectOfSize: CGSize(width: 50, height: 50))
     let ground = SKShapeNode(rectOfSize: CGSize(width: 1000, height: 1))
+    private var stageID = 1
     
     var changeSceneDelegate: ChangeSceneProtocol!
     var clearFlag = false
@@ -33,6 +34,15 @@ class BaseStage: SKScene {
         self.physicsWorld.contactDelegate = self
         self.configureStage()
     }
+    
+    init(size: CGSize, id: Int) {
+        super.init(size: size)
+        self.stageID = id
+        self.backgroundColor = UIColor.whiteColor()
+        self.physicsWorld.contactDelegate = self
+        self.configureStage()
+    }
+
     
     override func didMoveToView(view: SKView) {
         self.motionManager.startAccelerometerUpdate()
@@ -91,6 +101,12 @@ class BaseStage: SKScene {
         if (self.clearFlag) {
             return
         }
+        
+        // ステージデータを更新する
+        let data = StageClearData()
+        data.id = self.stageID
+        data.isClear = true
+        RealmHelper.update(data)
         
         self.clearFlag = true
         
