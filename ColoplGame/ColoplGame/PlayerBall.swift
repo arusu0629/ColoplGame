@@ -14,6 +14,8 @@ class PlayerBall: SKShapeNode {
     private var jumpRestCount = 2
     private let jumpPower: CGFloat = 500
     
+    let jumpSE = SKAction.playSoundFileNamed("jump.mp3", waitForCompletion: false)
+    
     func configureBall() {
         self.fillColor = UIColor.redColor()
         self.strokeColor = UIColor.blackColor()
@@ -36,8 +38,7 @@ class PlayerBall: SKShapeNode {
         self.jumpRestCount--
 
         // ジャンプ音を再生する
-        let jumpSE = SKAction.playSoundFileNamed("jump.mp3", waitForCompletion: false)
-        self.runAction(jumpSE)
+        self.runAction(self.jumpSE)
     }
     
     func resetJumpCount() {

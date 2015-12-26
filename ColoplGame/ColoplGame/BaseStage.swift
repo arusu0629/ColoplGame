@@ -15,6 +15,9 @@ class BaseStage: SKScene {
     let playerBall = PlayerBall(circleOfRadius: 10)
     let goalArea = GoalArea(rectOfSize: CGSize(width: 50, height: 50))
     let ground = SKShapeNode(rectOfSize: CGSize(width: 1000, height: 1))
+    
+    let clearSE = SKAction.playSoundFileNamed("clear.mp3", waitForCompletion: false)
+    
     private var stageID = 1
     
     var changeSceneDelegate: ChangeSceneProtocol!
@@ -119,6 +122,9 @@ class BaseStage: SKScene {
         let label = FadeInOutLabel(text: "Touch to Next Game!!!", fontName: "Helvetica")
         label.position = CGPoint(x: clearLabel.position.x, y: clearLabel.position.y - clearLabel.frame.size.height)
         self.addChild(label)
+        
+        // クリアSEを再生する
+        self.runAction(self.clearSE)
     }
     
     required init?(coder aDecoder: NSCoder) {
