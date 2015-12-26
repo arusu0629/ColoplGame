@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2565CEAB1C2EABCD00EE850F /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2565CEA81C2EABCD00EE850F /* jump.mp3 */; };
 		25804DB81C23AD4200DDFB8E /* Stage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DB71C23AD4200DDFB8E /* Stage3.swift */; };
 		25804DBA1C23B0D100DDFB8E /* HintLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DB91C23B0D100DDFB8E /* HintLabel.swift */; };
 		25804DBC1C2407DA00DDFB8E /* Stage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DBB1C2407DA00DDFB8E /* Stage4.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2565CEA81C2EABCD00EE850F /* jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump.mp3; sourceTree = "<group>"; };
 		25804DB71C23AD4200DDFB8E /* Stage3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage3.swift; sourceTree = "<group>"; };
 		25804DB91C23B0D100DDFB8E /* HintLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintLabel.swift; sourceTree = "<group>"; };
 		25804DBB1C2407DA00DDFB8E /* Stage4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage4.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2565CEA51C2EAB9900EE850F /* SE */ = {
+			isa = PBXGroup;
+			children = (
+				2565CEA81C2EABCD00EE850F /* jump.mp3 */,
+			);
+			name = SE;
+			sourceTree = "<group>";
+		};
 		2597295D1C2006B200432C27 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		25B4CEFB1C1D2D6600E6E9C7 /* ColoplGame */ = {
 			isa = PBXGroup;
 			children = (
+				2565CEA51C2EAB9900EE850F /* SE */,
 				25FE522B1C268B3100B8F1B7 /* Figure */,
 				25FE52221C25183600B8F1B7 /* Helper */,
 				25B4CF0C1C1D2D6600E6E9C7 /* Info.plist */,
@@ -404,6 +415,7 @@
 			files = (
 				25B4CF0B1C1D2D6600E6E9C7 /* LaunchScreen.storyboard in Resources */,
 				25FE522D1C268B5A00B8F1B7 /* Good.jpg in Resources */,
+				2565CEAB1C2EABCD00EE850F /* jump.mp3 in Resources */,
 				25B4CF081C1D2D6600E6E9C7 /* Assets.xcassets in Resources */,
 				25B4CF061C1D2D6600E6E9C7 /* Main.storyboard in Resources */,
 			);

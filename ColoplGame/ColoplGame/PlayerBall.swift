@@ -34,6 +34,10 @@ class PlayerBall: SKShapeNode {
         //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: self.jumpPower))
         self.physicsBody?.velocity.dy = self.jumpPower
         self.jumpRestCount--
+
+        // ジャンプ音を再生する
+        let jumpSE = SKAction.playSoundFileNamed("jump.mp3", waitForCompletion: false)
+        self.runAction(jumpSE)
     }
     
     func resetJumpCount() {
