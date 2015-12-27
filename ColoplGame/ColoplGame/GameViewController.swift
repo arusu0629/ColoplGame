@@ -16,8 +16,6 @@ class GameViewController: UIViewController {
     private var myLeftButton: UIBarButtonItem!
     private var myRightButton: UIBarButtonItem!
     
-    let replaySE = SKAction.playSoundFileNamed("replay.mp3", waitForCompletion: false)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +64,6 @@ class GameViewController: UIViewController {
     func replay() {
         // ゲーム画面を再ロードする
         self.switchingGameScene()
-        self.gameView.scene?.runAction(replaySE)
     }
     
     func exit() {

@@ -24,9 +24,6 @@ class StageSelectScene: SKScene {
     var scrollView: UIScrollView!
     
     override func didMoveToView(view: SKView) {
-        for (var i = 0; i < RealmHelper.getAllClearData().count; i++) {
-            print(RealmHelper.getAllClearData()[i])
-        }
         self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
         
         // スクロールビュー
