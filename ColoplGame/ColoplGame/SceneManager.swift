@@ -13,6 +13,7 @@ class SceneManager: NSObject {
     
     // 現在選択されているインデックス
     private static var stageIndex = 1
+    private static let transitionSE = SKAction.playSoundFileNamed("transition.mp3", waitForCompletion: false)
 
     // スタートシーン
     class func startScene(size: CGSize) -> StartScene {
@@ -46,6 +47,7 @@ class SceneManager: NSObject {
     class func changeScene(view: SKView, New newScene: SKScene, Duration sec: NSTimeInterval) {
         let transition = SKTransition.fadeWithDuration(sec)
         view.presentScene(newScene, transition: transition)
+        newScene.runAction(transitionSE)
     }
     
     class func setStageIndex(index: Int) {
