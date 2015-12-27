@@ -47,10 +47,6 @@ class GameViewController: UIViewController {
         let scene = SceneManager.stageSelectScene(self.view.bounds.size)
         scene.changeSceneDelegate = self
         SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
-        // ナビゲーションバーが表示されている場合は非表示にする
-        if (!self.navigationController!.navigationBarHidden) {
-            self.navigationController?.navigationBarHidden = true
-        }
     }
     
     func switchingGameScene() {
@@ -59,6 +55,9 @@ class GameViewController: UIViewController {
         SceneManager.changeScene(self.gameView, New: scene, Duration: 0.5)
         // ゲーム中にはナビゲーションバーを表示する
         self.navigationController?.navigationBarHidden = false
+        // ナビゲーションバーのボタンを有効にする
+        self.myLeftButton.enabled = true
+        self.myRightButton.enabled = true
     }
     
     func replay() {
@@ -69,6 +68,9 @@ class GameViewController: UIViewController {
     func exit() {
         // ステージ選択画面に戻る
         self.switchingStageSelectScene()
+        // ナビゲーションバーのボタンを無効にする
+        self.myLeftButton.enabled = false
+        self.myRightButton.enabled = false
     }
     
     override func viewDidAppear(animated: Bool) {

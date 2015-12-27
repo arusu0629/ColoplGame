@@ -63,26 +63,27 @@ class BaseStage: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if (self.clearFlag && !clearLabelTapped) {
+            self.motionManager.stopAccelerometerUpdates()
             self.clearLabelTapped = true
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "changeScene", userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "changeScene", userInfo: nil, repeats: false)
             return
         }
         self.playerBall.jump()
     }
     
-    func changeScene() {
+    private func changeScene() {
         self.changeSceneDelegate.changeScene(self)
     }
     
-    func configurePlayerBall() {
+    private func configurePlayerBall() {
         self.playerBall.configureBall()
     }
     
-    func configureGoalArea() {
+    private func configureGoalArea() {
         self.goalArea.configure()
     }
     
-    func configureStage() {
+    private func configureStage() {
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody?.dynamic = false
         self.physicsBody?.categoryBitMask = GameScene.ColliderType.World
@@ -100,7 +101,7 @@ class BaseStage: SKScene {
     }
     
     // 子クラスのデリゲートメソッドの時の呼ばれる(ゴールエリアと衝突した時)
-    func showClearLabel() {
+    private func showClearLabel() {
         if (self.clearFlag) {
             return
         }
@@ -134,7 +135,7 @@ class BaseStage: SKScene {
 
 extension BaseStage: SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
-        print("nodeA = \(contact.bodyA.node?.name) nodeB = \(contact.bodyB.node?.name)")
+//        print("nodeA = \(contact.bodyA.node?.name) nodeB = \(contact.bodyB.node?.name)")
         let success = (contact.bodyA.node == self.playerBall && contact.bodyB.node == self.goalArea) || (contact.bodyA.node == self.goalArea && contact.bodyB.node == self.playerBall)
         if (success) {
             self.showClearLabel()

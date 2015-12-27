@@ -24,6 +24,8 @@ class StageSelectScene: SKScene {
     var scrollView: UIScrollView!
     
     override func didMoveToView(view: SKView) {
+        
+        
         self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
         
         // スクロールビュー
@@ -36,6 +38,14 @@ class StageSelectScene: SKScene {
     }
     
     func showStageButton() {
+        // ナビゲーションバーを非表示にする
+        let gameView = self.view
+        // 現在のビューの親のViewControllerを取得
+        if let gameViewController = ViewControllerHelper.getRootViewController((gameView)!) as? GameViewController {
+            if (!gameViewController.navigationController!.navigationBarHidden) {
+                gameViewController.navigationController?.navigationBarHidden = true
+            }
+        }
         
         let stageDataArray = RealmHelper.getAllClearData()
         let clearImage = UIImage(named: "Good.jpg")
