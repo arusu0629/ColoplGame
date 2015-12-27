@@ -22,9 +22,9 @@ class PlayerBall: SKShapeNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: 10)
         self.physicsBody?.categoryBitMask = GameScene.ColliderType.PlayerBall
         // ゲームシーンの周りのエリアと障害物との間で接触した際に反射動作を行う(つまりゴールエリアと接触した場合は反射動作せず、すり抜ける)
-        self.physicsBody?.collisionBitMask = (GameScene.ColliderType.World | GameScene.ColliderType.Other | GameScene.ColliderType.Ground)
+        self.physicsBody?.collisionBitMask = (GameScene.ColliderType.World | GameScene.ColliderType.Obstacle | GameScene.ColliderType.Ground | GameScene.ColliderType.LineObject)
         // 接触した場合にデリゲートメソッドを呼び出す対象のオブジェクトの指定
-        self.physicsBody?.contactTestBitMask = (GameScene.ColliderType.GoalArea | GameScene.ColliderType.Other | GameScene.ColliderType.Ground)
+        self.physicsBody?.contactTestBitMask = (GameScene.ColliderType.GoalArea | GameScene.ColliderType.Obstacle | GameScene.ColliderType.Ground | GameScene.ColliderType.LineObject)
         
         self.name = "PlayerBall"
     }

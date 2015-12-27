@@ -15,7 +15,7 @@ class Obstacle: SKShapeNode {
         self.strokeColor = UIColor.blackColor()
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
         self.physicsBody?.dynamic = false
-        self.physicsBody?.categoryBitMask = GameScene.ColliderType.Other
+        self.physicsBody?.categoryBitMask = GameScene.ColliderType.Obstacle
         self.physicsBody?.collisionBitMask = GameScene.ColliderType.GoalArea
         self.name = "Obstacle"
         

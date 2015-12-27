@@ -23,6 +23,10 @@ class BaseStage: SKScene {
     var clearFlag = false
     var clearLabelTapped = false
     
+    var lines: [Line] = []
+    var lastPoint: CGPoint!
+    var lineObjects: [LineObject] = []
+    
     override init() {
         super.init()
         self.backgroundColor = UIColor.whiteColor()
@@ -43,6 +47,7 @@ class BaseStage: SKScene {
         self.backgroundColor = UIColor.whiteColor()
         self.physicsWorld.contactDelegate = self
         self.configureStage()
+        self.userInteractionEnabled = true
     }
 
     
@@ -67,7 +72,41 @@ class BaseStage: SKScene {
             NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "changeScene", userInfo: nil, repeats: false)
             return
         }
+        // 現在ジャンプモードか描画モードなのかを判定してそのモードに対する処理を行うようにする
+        self.lastPoint = touches.first?.locationInNode(self)
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let newPoint = touches.first?.locationInNode(self)
+        lines.append(Line(start: lastPoint, end: newPoint!))
+        self.lastPoint = newPoint
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.playerBall.jump()
+        let path = CGPathCreateMutable()
+        for (index, line) in self.lines.enumerate() {
+            if (index == 0) {
+                // 最初の始点
+                CGPathMoveToPoint(path, nil, line.start.x, line.start.y)
+            }
+            // 終点
+            if (index == self.lines.count - 1) {
+                CGPathCloseSubpath(path)
+                continue
+            }
+            // タッチした座標を元に図形を描画
+            CGPathAddLineToPoint(path, nil, line.start.x, line.start.y)
+            CGPathAddLineToPoint(path, nil, line.end.x, line.end.y)
+        }
+        
+        let node = LineObject()
+        node.path = path
+        node.configure()
+        
+        self.addChild(node)
+        self.lineObjects.append(node)
+        self.lines.removeAll()
     }
     
     func changeScene() {
@@ -134,7 +173,7 @@ class BaseStage: SKScene {
 
 extension BaseStage: SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
-//        print("nodeA = \(contact.bodyA.node?.name) nodeB = \(contact.bodyB.node?.name)")
+        print("nodeA = \(contact.bodyA.node?.name) nodeB = \(contact.bodyB.node?.name)")
         let success = (contact.bodyA.node == self.playerBall && contact.bodyB.node == self.goalArea) || (contact.bodyA.node == self.goalArea && contact.bodyB.node == self.playerBall)
         if (success) {
             self.showClearLabel()
