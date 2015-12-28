@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
     private var myLeftButton: UIBarButtonItem!
     private var myRightButton: UIBarButtonItem!
     
+    static var jumpMode = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +37,26 @@ class GameViewController: UIViewController {
         self.myRightButton = UIBarButtonItem(title: "Exit", style: .Plain, target: self, action: "exit")
         self.navigationItem.leftBarButtonItem = self.myLeftButton
         self.navigationItem.rightBarButtonItem = self.myRightButton
+        
+        // ナビゲーションバー中央にジャンプ,描画モードを切り替えるボタンを配置する
+        let centerButton = UIButton(type: .Custom)
+        centerButton.frame = CGRectMake(0, 0, 40, 40)
+        centerButton.setImage(UIImage(named: "Jump.jpg"), forState: .Normal)
+        centerButton.setTitle("Jump", forState: .Normal)
+        centerButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
+        self.navigationItem.titleView = centerButton
+    }
+    
+    func changeIcon(sender: UIButton) {
+        if (sender.titleLabel?.text == "Jump") {
+            sender.setImage(UIImage(named: "Paint.jpg"), forState: .Normal)
+            sender.setTitle("Paint", forState: .Normal)
+            GameViewController.jumpMode = false
+            return
+        }
+        sender.setImage(UIImage(named: "Jump.jpg"), forState: .Normal)
+        sender.setTitle("Jump", forState: .Normal)
+        GameViewController.jumpMode = true
     }
     
     func switchingStartScene() {

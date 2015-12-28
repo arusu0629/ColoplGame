@@ -31,14 +31,12 @@ class BaseStage: SKScene {
         super.init()
         self.backgroundColor = UIColor.whiteColor()
         self.physicsWorld.contactDelegate = self
-        self.configureStage()
     }
     
     override init(size: CGSize) {
         super.init(size: size)
         self.backgroundColor = UIColor.whiteColor()
         self.physicsWorld.contactDelegate = self
-        self.configureStage()
     }
     
     init(size: CGSize, id: Int) {
@@ -46,20 +44,16 @@ class BaseStage: SKScene {
         self.stageID = id
         self.backgroundColor = UIColor.whiteColor()
         self.physicsWorld.contactDelegate = self
-        self.configureStage()
-        self.userInteractionEnabled = true
     }
-
-    
+        
     override func didMoveToView(view: SKView) {
         self.motionManager.startAccelerometerUpdate()
         self.configurePlayerBall()
         self.configureGoalArea()
+        self.configureStage()
     }
     
     override func update(currentTime: NSTimeInterval) {
-//        self.playerBall.physicsBody?.applyImpulse(CGVector(dx: self.motionManager.accelerationX * 0.3, dy: 0))
-
         // 力を加えないで速度で横移動を行うようにした
         let moveX = CGFloat(self.motionManager.accelerationX * 400)
         self.playerBall.physicsBody?.velocity.dx = moveX
@@ -72,18 +66,29 @@ class BaseStage: SKScene {
             NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "changeScene", userInfo: nil, repeats: false)
             return
         }
-        // 現在ジャンプモードか描画モードなのかを判定してそのモードに対する処理を行うようにする
         self.lastPoint = touches.first?.locationInNode(self)
+        // ジャンプモードの場合はジャンプする
+        if (GameViewController.jumpMode) {
+            self.playerBall.jump()
+        }
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // ジャンプモードの時は描画処理はしないようにする
+        if (GameViewController.jumpMode) {
+            return
+        }
         let newPoint = touches.first?.locationInNode(self)
         lines.append(Line(start: lastPoint, end: newPoint!))
         self.lastPoint = newPoint
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.playerBall.jump()
+        // ジャンプモードの時は描画処理はしないようにする
+        if (GameViewController.jumpMode) {
+            return
+        }
+
         let path = CGPathCreateMutable()
         for (index, line) in self.lines.enumerate() {
             if (index == 0) {
@@ -100,6 +105,7 @@ class BaseStage: SKScene {
             CGPathAddLineToPoint(path, nil, line.end.x, line.end.y)
         }
         
+        // 描画処理
         let node = LineObject()
         node.path = path
         node.configure()
