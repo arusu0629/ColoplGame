@@ -23,9 +23,7 @@ class BaseStage: SKScene {
     var clearFlag = false
     var clearLabelTapped = false
     
-    var lines: [Line] = []
-    var lastPoint: CGPoint!
-    var lineObjects: [LineObject] = []
+    let paintManager = GameManager.paintManager
     
     override init() {
         super.init()
@@ -66,7 +64,7 @@ class BaseStage: SKScene {
             NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "changeScene", userInfo: nil, repeats: false)
             return
         }
-        self.lastPoint = touches.first?.locationInNode(self)
+        self.paintManager.lastPoint = touches.first?.locationInNode(self)
         // ジャンプモードの場合はジャンプする
         if (GameViewController.jumpMode) {
             self.playerBall.jump()
@@ -79,8 +77,8 @@ class BaseStage: SKScene {
             return
         }
         let newPoint = touches.first?.locationInNode(self)
-        lines.append(Line(start: lastPoint, end: newPoint!))
-        self.lastPoint = newPoint
+        self.paintManager.lines.append(Line(start: self.paintManager.lastPoint, end: newPoint!))
+        self.paintManager.lastPoint = newPoint
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -88,31 +86,14 @@ class BaseStage: SKScene {
         if (GameViewController.jumpMode) {
             return
         }
-
-        let path = CGPathCreateMutable()
-        for (index, line) in self.lines.enumerate() {
-            if (index == 0) {
-                // 最初の始点
-                CGPathMoveToPoint(path, nil, line.start.x, line.start.y)
-            }
-            // 終点
-            if (index == self.lines.count - 1) {
-                CGPathCloseSubpath(path)
-                continue
-            }
-            // タッチした座標を元に図形を描画
-            CGPathAddLineToPoint(path, nil, line.start.x, line.start.y)
-            CGPathAddLineToPoint(path, nil, line.end.x, line.end.y)
-        }
         
-        // 描画処理
+        // 指が離れた時に描画処理を行う
         let node = LineObject()
-        node.path = path
+        node.path = self.paintManager.getPath()
         node.configure()
         
         self.addChild(node)
-        self.lineObjects.append(node)
-        self.lines.removeAll()
+        self.paintManager.lineObjects.append(node)
     }
     
     func changeScene() {
