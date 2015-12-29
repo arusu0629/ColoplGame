@@ -55,6 +55,12 @@ class BaseStage: SKScene {
         // 力を加えないで速度で横移動を行うようにした
         let moveX = CGFloat(self.motionManager.accelerationX * 400)
         self.playerBall.physicsBody?.velocity.dx = moveX
+        
+        // 描画できるのは最大3つまで(4つからは古いやつが削除されていく)
+        if (self.paintManager.lineObjects.count > self.paintManager.limitLineObjectNum) {
+            let firstLineObject = self.paintManager.lineObjects.removeFirst()
+            firstLineObject.removeFromParent()
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -169,6 +175,10 @@ extension BaseStage: SKPhysicsContactDelegate {
         // 地面についたらダブルジャンプの回数をリセットする
         if ((contact.bodyA.node == self.playerBall && contact.bodyB.node?.name == "Ground") || (contact.bodyA.node?.name == "Ground" && contact.bodyB.node == self.playerBall)) {
             self.playerBall.resetJumpCount()
+        }
+        // ラインオブジェクトの場合はジャンプ回数を1にする
+        if ((contact.bodyA.node == self.playerBall && contact.bodyB.node?.name == "LineObject") || (contact.bodyA.node?.name == "LineObject" && contact.bodyB.node == self.playerBall)) {
+            self.playerBall.resetJumpCount(1)
         }
     }
 }

@@ -41,7 +41,8 @@ class PlayerBall: SKShapeNode {
         self.runAction(self.jumpSE)
     }
     
-    func resetJumpCount() {
-        self.jumpRestCount = 2
+    func resetJumpCount(reset: Int = 2) {
+        // まだ2回ジャンプが残ってるなら2回のままにする
+        self.jumpRestCount = max(self.jumpRestCount, reset)
     }
 }

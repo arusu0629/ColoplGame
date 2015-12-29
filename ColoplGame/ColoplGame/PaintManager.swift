@@ -14,6 +14,7 @@ class PaintManager: NSObject {
     var lines: [Line] = []
     var path: CGMutablePath!
     var lineObjects: [LineObject] = []
+    var limitLineObjectNum = 3 // 描画できる数
     
     func getPath() -> CGMutablePath {
         // 初期化

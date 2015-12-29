@@ -18,6 +18,6 @@ class LineObject: SKShapeNode {
         self.name = "LineObject"
         // 重くする
         self.physicsBody?.mass = (self.physicsBody!.mass * 10000)
+        self.physicsBody?.friction = 1.0
     }
 }
-    
