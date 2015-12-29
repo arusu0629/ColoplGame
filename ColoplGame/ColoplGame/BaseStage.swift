@@ -11,7 +11,7 @@ import SpriteKit
 
 class BaseStage: SKScene {
     
-    let motionManager = MyCMMotionManager()
+    let motionManager = GameManager.motionManager
     let playerBall = PlayerBall(circleOfRadius: 10)
     let goalArea = GoalArea(rectOfSize: CGSize(width: 50, height: 50))
     let ground = SKShapeNode(rectOfSize: CGSize(width: 1000, height: 1))

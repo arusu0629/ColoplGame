@@ -12,12 +12,12 @@ import SpriteKit
 class LineObject: SKShapeNode {
     func configure() {
         self.strokeColor = UIColor.greenColor()
-        self.lineWidth = 3
+        self.lineWidth = 5
         self.physicsBody = SKPhysicsBody(polygonFromPath: self.path!)
-        self.physicsBody?.dynamic = false
-        self.physicsBody?.affectedByGravity = true
         self.physicsBody?.categoryBitMask = GameScene.ColliderType.LineObject
         self.name = "LineObject"
+        // 重くする
+        self.physicsBody?.mass = (self.physicsBody!.mass * 10000)
     }
 }
     
