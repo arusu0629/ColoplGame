@@ -19,11 +19,13 @@ class StageSelectScene: SKScene {
     var buttonColumnNum = 0.0 // ボタンの数による行数
     let screenWidth = Double(UIScreen.mainScreen().bounds.size.width)
     
-    let buttonNum = 30.0 // 今はテストとして30個のステージボタンを配置する
+    let nextStageShowNum = 3.0 // 何個先のステージまで表示するかの数
+    var buttonNum = 0.0
     
     var scrollView: UIScrollView!
     
     override func didMoveToView(view: SKView) {
+        self.buttonNum = Double(RealmHelper.getAllClearData().count) + self.nextStageShowNum
         self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
         
         // スクロールビュー

@@ -36,9 +36,15 @@ class RealmHelper: NSObject {
         return nil
     }
     
-    class func getAllClearData() -> [StageClearData] {
+    class func getAllData() -> [StageClearData] {
         let realm = try! Realm()
         let allData = realm.objects(StageClearData)
+        return Array(allData)
+    }
+    
+    class func getAllClearData() -> [StageClearData] {
+        let realm = try! Realm()
+        let allData = realm.objects(StageClearData).filter("isClear = %@", true)
         return Array(allData)
     }
 }
