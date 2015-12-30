@@ -42,5 +42,6 @@ class Stage1: BaseStage {
         let pos = CGPoint(x: (self.frame.size.width / 2) - (size.width / 2), y: self.frame.size.height - (size.height * 2))
         label.position = pos
         self.addChild(label)
+        label.startAction()
     }
 }

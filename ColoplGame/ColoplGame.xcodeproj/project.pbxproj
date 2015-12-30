@@ -35,6 +35,7 @@
 		259729781C22C6D800432C27 /* ClearLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729771C22C6D800432C27 /* ClearLabel.swift */; };
 		2597297A1C22CCE200432C27 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729791C22CCE200432C27 /* GameScene.swift */; };
 		2597297C1C23998500432C27 /* Stage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597297B1C23998500432C27 /* Stage2.swift */; };
+		25B3999B1C32DBFF0081B321 /* Stage7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999A1C32DBFF0081B321 /* Stage7.swift */; };
 		25B4CEFD1C1D2D6600E6E9C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */; };
 		25B4CF061C1D2D6600E6E9C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B4CF041C1D2D6600E6E9C7 /* Main.storyboard */; };
 		25B4CF081C1D2D6600E6E9C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B4CF071C1D2D6600E6E9C7 /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		259729771C22C6D800432C27 /* ClearLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearLabel.swift; sourceTree = "<group>"; };
 		259729791C22CCE200432C27 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2597297B1C23998500432C27 /* Stage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage2.swift; sourceTree = "<group>"; };
+		25B3999A1C32DBFF0081B321 /* Stage7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage7.swift; sourceTree = "<group>"; };
 		25B4CEF91C1D2D6600E6E9C7 /* ColoplGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColoplGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B4CEFC1C1D2D6600E6E9C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B4CF051C1D2D6600E6E9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				25804DBB1C2407DA00DDFB8E /* Stage4.swift */,
 				25804DBF1C241B9300DDFB8E /* Stage5.swift */,
 				25FE52201C2420A700B8F1B7 /* Stage6.swift */,
+				25B3999A1C32DBFF0081B321 /* Stage7.swift */,
 			);
 			name = Stage;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				2597297C1C23998500432C27 /* Stage2.swift in Sources */,
 				25804DBA1C23B0D100DDFB8E /* HintLabel.swift in Sources */,
 				25804DB81C23AD4200DDFB8E /* Stage3.swift in Sources */,
+				25B3999B1C32DBFF0081B321 /* Stage7.swift in Sources */,
 				259729651C201A3100432C27 /* ChangeSceneProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
