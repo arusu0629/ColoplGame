@@ -80,6 +80,9 @@ class StageSelectScene: SKScene {
             gameVC.navigationItem.titleView?.hidden = true
         }
         
+        // ジャンプモードなどの設定をリセットする
+        gameVC.resetCenterButton()
+        
         if (self.scrollView.hidden) {
             return
         }

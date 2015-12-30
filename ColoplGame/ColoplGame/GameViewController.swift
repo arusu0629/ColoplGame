@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     
     private var myLeftButton: UIBarButtonItem!
     private var myRightButton: UIBarButtonItem!
+    private var centerButton: UIButton!
     
     static var jumpMode = true
     
@@ -39,11 +40,11 @@ class GameViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = self.myRightButton
         
         // ナビゲーションバー中央にジャンプ,描画モードを切り替えるボタンを配置する
-        let centerButton = UIButton(type: .Custom)
-        centerButton.frame = CGRectMake(0, 0, 40, 40)
-        centerButton.setImage(UIImage(named: "Jump.jpg"), forState: .Normal)
-        centerButton.setTitle("Jump", forState: .Normal)
-        centerButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
+        self.centerButton = UIButton(type: .Custom)
+        self.centerButton.frame = CGRectMake(0, 0, 40, 40)
+        self.centerButton.setImage(UIImage(named: "Jump.jpg"), forState: .Normal)
+        self.centerButton.setTitle("Jump", forState: .Normal)
+        self.centerButton.addTarget(self, action: "changeIcon:", forControlEvents: .TouchUpInside)
         self.navigationItem.titleView = centerButton
     }
     
@@ -85,6 +86,7 @@ class GameViewController: UIViewController {
     func replay() {
         // ゲーム画面を再ロードする
         self.switchingGameScene()
+        self.resetCenterButton()
     }
     
     func exit() {
@@ -93,6 +95,12 @@ class GameViewController: UIViewController {
         // ナビゲーションバーのボタンを無効にする
         self.myLeftButton.enabled = false
         self.myRightButton.enabled = false
+    }
+    
+    func resetCenterButton() {
+        self.centerButton.setImage(UIImage(named: "Jump.jpg"), forState: .Normal)
+        self.centerButton.setTitle("Jump", forState: .Normal)
+        GameViewController.jumpMode = true
     }
     
     override func viewDidAppear(animated: Bool) {
