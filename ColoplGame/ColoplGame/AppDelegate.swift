@@ -28,9 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func initStageData() {
         for (var i = 0; i < 30; i++) {
             let name = "Stage \(i+1)"
-            let stageData = StageClearData()
-            stageData.id = i + 1
-            stageData.name = name
+            let stageData = StageClearData(id: i + 1, name: name)
             RealmHelper.add(stageData)
         }
     }

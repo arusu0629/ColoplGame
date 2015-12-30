@@ -138,9 +138,8 @@ class BaseStage: SKScene {
         }
         
         // ステージデータを更新する
-        let data = StageClearData()
+        let data = StageClearData(id: self.stageID, isClear: true)
         data.id = self.stageID
-        data.isClear = true
         RealmHelper.update(data)
         
         self.clearFlag = true

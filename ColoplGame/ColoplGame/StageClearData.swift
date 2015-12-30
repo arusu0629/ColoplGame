@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Realm
 
 class StageClearData: Object {
     dynamic var id = 0
@@ -20,5 +21,21 @@ class StageClearData: Object {
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    init(id: Int = 0, name: String = "", clearTime: Double = 0.0, isClear: Bool = false) {
+        super.init()
+        self.id = id
+        self.name = name
+        self.clearTime = clearTime
+        self.isClear = isClear
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    required override init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
     }
 }
