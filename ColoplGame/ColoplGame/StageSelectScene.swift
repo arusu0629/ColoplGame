@@ -44,51 +44,46 @@ class StageSelectScene: SKScene {
                 gameViewController.navigationController?.navigationBarHidden = true
             }
         }
-        let stageDataArray = RealmHelper.getAllClearData()
-        let clearImage = UIImage(named: "Good.jpg")
-        
         // ボタンのサイズを決定
         let buttonSize = (self.screenWidth - self.buttonWidthMargin * (self.buttonNumPerColumn + 1)) / self.buttonNumPerColumn
         // ボタンの作成
         for (var i = 0.0; i < self.buttonNum; i++) {
+            // ステージボタンの座標決め
             let buttonX = self.buttonWidthMargin + (buttonSize + self.buttonWidthMargin) * (i % self.buttonNumPerColumn)
             let buttonY = self.buttonHeightMargin + (buttonSize + self.buttonHeightMargin) * floor(i / self.buttonNumPerColumn)
             let buttonRect = CGRect(x: buttonX, y: buttonY, width: buttonSize, height: buttonSize)
             
-            let stageButton = UIButton(frame: buttonRect)
-            stageButton.setTitle("Stage \(Int(i + 1))", forState: .Normal)
-            stageButton.setTitleColor(UIColor.redColor(), forState: .Normal)
-            stageButton.titleLabel?.font = UIFont(name: "Helvetica Bold", size: 14)
-            stageButton.backgroundColor = UIColor.whiteColor()
-            stageButton.layer.cornerRadius = CGFloat(buttonSize / 2.0) // 丸くする
-            stageButton.layer.borderWidth = 1.0
+            let stageButton = StageButton(frame: buttonRect, index: Int(i + 1))
             stageButton.addTarget(self, action: "showStage:", forControlEvents: .TouchUpInside)
-            stageButton.tag = Int(i + 1)
 
-            let stageData = stageDataArray[Int(i)]
-            // クリアしている場合はクリア画像をボタンに載っける
-            if (stageData.isClear) {
-                stageButton.setImage(clearImage, forState: .Normal)
-            }
             self.scrollView.addSubview(stageButton)
         }
         // 増えたボタンの分だけスクロールできるようにする
         self.scrollView.contentSize = CGSize(width: 0, height: self.buttonHeightMargin + (self.buttonColumnNum + 1) * (buttonSize + self.buttonHeightMargin))
     }
     
-    func showStage(sender: UIButton) {
+    func showStage(sender: StageButton) {
         SceneManager.setStageIndex(sender.tag)
         changeSceneDelegate.changeScene(self)
+        
+        guard let gameVC = ViewControllerHelper.getRootViewController(self.view!) as? GameViewController else {
+            print("Cannot get gameViewController ")
+            return
+        }
+
+        // 描画専用ステージの場合はナビゲーションバーの中央のボタンを非表示にしない
+        if (sender.canPaintStage) {
+            gameVC.navigationItem.titleView?.hidden = false
+        } else {
+            gameVC.navigationItem.titleView?.hidden = true
+        }
+        
         if (self.scrollView.hidden) {
             return
         }
         self.scrollView.hidden = true
     }
 
-    override func update(currentTime: NSTimeInterval) {
-        
-    }
-    
     override init() {
         super.init()
         self.backgroundColor = UIColor.whiteColor()
