@@ -23,21 +23,12 @@ class StageSelectScene: SKScene {
     var buttonNum = 0.0
     
     var scrollView: UIScrollView!
+    var snsView: UIView!
+    var snsViewHeight: CGFloat = 40
+    var snsShareButtonWidth: CGFloat = 40
     
     override func didMoveToView(view: SKView) {
-        self.buttonNum = Double(RealmHelper.getAllClearData().count) + self.nextStageShowNum
-        self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
         
-        // スクロールビュー
-        self.scrollView = UIScrollView(frame: CGRectMake(0, 0, self.view!.frame.size.width, self.view!.frame.size.height))
-        self.view!.addSubview(self.scrollView)
-        
-        // ステージボタンを表示する
-        // ボタンがいきなり表示されておかしいため、遅延実行して表示するようにする
-        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "showStageButton", userInfo: nil, repeats: false)
-    }
-    
-    func showStageButton() {
         // ナビゲーションバーを非表示にする
         let gameView = self.view
         // 現在のビューの親のViewControllerを取得
@@ -46,6 +37,29 @@ class StageSelectScene: SKScene {
                 gameViewController.navigationController?.navigationBarHidden = true
             }
         }
+        
+        // 表示するステージボタンの数を決める
+        self.buttonNum = Double(RealmHelper.getAllClearData().count) + self.nextStageShowNum
+        self.buttonColumnNum = ceil(Double(self.buttonNum / self.buttonNumPerColumn))
+        
+        // スクロールビュー
+        self.scrollView = UIScrollView(frame: CGRectMake(0, 0, self.view!.frame.size.width, self.view!.frame.size.height - self.snsViewHeight))
+        self.view!.addSubview(self.scrollView)
+        
+        if (self.scrollView.hidden) {
+            self.scrollView.hidden = false
+            self.snsView.hidden = false
+        }
+        
+        // ステージボタンを表示する
+        // ボタンがいきなり表示されておかしいため、遅延実行して表示するようにする
+        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "showStageButton", userInfo: nil, repeats: false)
+        
+        // 画面下にSNSViewを表示する
+        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "setSNSView", userInfo: nil, repeats: false)
+    }
+    
+    func showStageButton() {
         // ボタンのサイズを決定
         let buttonSize = (self.screenWidth - self.buttonWidthMargin * (self.buttonNumPerColumn + 1)) / self.buttonNumPerColumn
         // ボタンの作成
@@ -87,6 +101,36 @@ class StageSelectScene: SKScene {
             return
         }
         self.scrollView.hidden = true
+        self.snsView.hidden = true
+    }
+    
+    func setSNSView() {
+        // GameViewControllerを取得する
+        guard let gameVC = ViewControllerHelper.getRootViewController(self.view!) as? GameViewController else {
+            print("Cannot get gameViewController ")
+            return
+        }
+        
+        let width = self.frame.size.width
+        let y = self.scrollView.frame.size.height
+        var rect = CGRectMake(0, y, width, self.snsViewHeight)
+        self.snsView = UIView(frame: rect)
+        self.view?.addSubview(self.snsView)
+        
+        let shareButtonWidthMargin = ((width) - (self.snsShareButtonWidth * 2)) / 3
+
+        // Twitterシェアボタンを作成
+        var point = CGPoint(x: shareButtonWidthMargin, y: 0)
+        let size = CGSize(width: self.snsShareButtonWidth, height: self.snsViewHeight)
+        rect = CGRectMake(point.x, point.y, size.width, size.height)
+        let twitterButton = TwitterShareButton(frame: rect, currentViewController: gameVC)
+        self.snsView.addSubview(twitterButton)
+        
+        // LINEシェアボタンを作成
+        point = CGPoint(x: shareButtonWidthMargin * 2 + (self.snsShareButtonWidth), y: 0)
+        rect = CGRectMake(point.x, point.y, size.width, size.height)
+        let lineButton = LineShareButton(frame: rect, currentViewController: gameVC)
+        self.snsView.addSubview(lineButton)
     }
 
     override init() {
