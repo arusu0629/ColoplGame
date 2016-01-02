@@ -46,6 +46,7 @@
 		259729781C22C6D800432C27 /* ClearLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729771C22C6D800432C27 /* ClearLabel.swift */; };
 		2597297A1C22CCE200432C27 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729791C22CCE200432C27 /* GameScene.swift */; };
 		2597297C1C23998500432C27 /* Stage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597297B1C23998500432C27 /* Stage2.swift */; };
+		25982F011C380AE0005B4C1A /* Stage11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25982F001C380AE0005B4C1A /* Stage11.swift */; };
 		25B3999B1C32DBFF0081B321 /* Stage7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999A1C32DBFF0081B321 /* Stage7.swift */; };
 		25B3999D1C33A2960081B321 /* StageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999C1C33A2960081B321 /* StageButton.swift */; };
 		25B3999F1C3685D40081B321 /* SNSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999E1C3685D40081B321 /* SNSHelper.swift */; };
@@ -127,6 +128,7 @@
 		259729771C22C6D800432C27 /* ClearLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearLabel.swift; sourceTree = "<group>"; };
 		259729791C22CCE200432C27 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2597297B1C23998500432C27 /* Stage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage2.swift; sourceTree = "<group>"; };
+		25982F001C380AE0005B4C1A /* Stage11.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage11.swift; sourceTree = "<group>"; };
 		25B3999A1C32DBFF0081B321 /* Stage7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage7.swift; sourceTree = "<group>"; };
 		25B3999C1C33A2960081B321 /* StageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageButton.swift; sourceTree = "<group>"; };
 		25B3999E1C3685D40081B321 /* SNSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSHelper.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				258123361C378582004471AE /* Stage8.swift */,
 				258123381C379BAC004471AE /* Stage9.swift */,
 				2581233A1C37D1F1004471AE /* Stage10.swift */,
+				25982F001C380AE0005B4C1A /* Stage11.swift */,
 			);
 			name = Stage;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				258123391C379BAC004471AE /* Stage9.swift in Sources */,
 				258BC6031C2F985700EB43D1 /* ViewControllerHelper.swift in Sources */,
 				259729681C2022B500432C27 /* GameViewController.swift in Sources */,
+				25982F011C380AE0005B4C1A /* Stage11.swift in Sources */,
 				258BC6071C2FAB6700EB43D1 /* Line.swift in Sources */,
 				25FE522A1C2681A300B8F1B7 /* RealmHelper.swift in Sources */,
 				259729711C22BD2500432C27 /* Stage1.swift in Sources */,
