@@ -17,6 +17,7 @@ class GameScene: NSObject {
         static let Obstacle: UInt32 = (1 << 4)
         static let LineObject: UInt32 = (1 << 5)
         static let Ground: UInt32 = (1 << 6)
-        static let None: UInt32 = (1 << 7)
+        static let CheckFlag: UInt32 = (1 << 7)
+        static let None: UInt32 = (1 << 8)
     }
 }
