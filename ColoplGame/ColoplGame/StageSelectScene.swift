@@ -82,7 +82,12 @@ class StageSelectScene: SKScene {
         SceneManager.setStageIndex(sender.tag)
         changeSceneDelegate.changeScene(self)
         
-        guard let gameVC = ViewControllerHelper.getRootViewController(self.view!) as? GameViewController else {
+        guard let gameView = self.view else {
+            print("Cannot get gameView")
+            return
+        }
+        
+        guard let gameVC = ViewControllerHelper.getRootViewController(gameView) as? GameViewController else {
             print("Cannot get gameViewController ")
             return
         }

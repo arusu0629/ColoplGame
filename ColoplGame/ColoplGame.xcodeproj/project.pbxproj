@@ -47,6 +47,7 @@
 		2597297A1C22CCE200432C27 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729791C22CCE200432C27 /* GameScene.swift */; };
 		2597297C1C23998500432C27 /* Stage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597297B1C23998500432C27 /* Stage2.swift */; };
 		25982F011C380AE0005B4C1A /* Stage11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25982F001C380AE0005B4C1A /* Stage11.swift */; };
+		25982F031C3850B4005B4C1A /* Stage12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25982F021C3850B4005B4C1A /* Stage12.swift */; };
 		25B3999B1C32DBFF0081B321 /* Stage7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999A1C32DBFF0081B321 /* Stage7.swift */; };
 		25B3999D1C33A2960081B321 /* StageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999C1C33A2960081B321 /* StageButton.swift */; };
 		25B3999F1C3685D40081B321 /* SNSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B3999E1C3685D40081B321 /* SNSHelper.swift */; };
@@ -129,6 +130,7 @@
 		259729791C22CCE200432C27 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2597297B1C23998500432C27 /* Stage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage2.swift; sourceTree = "<group>"; };
 		25982F001C380AE0005B4C1A /* Stage11.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage11.swift; sourceTree = "<group>"; };
+		25982F021C3850B4005B4C1A /* Stage12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage12.swift; sourceTree = "<group>"; };
 		25B3999A1C32DBFF0081B321 /* Stage7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage7.swift; sourceTree = "<group>"; };
 		25B3999C1C33A2960081B321 /* StageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageButton.swift; sourceTree = "<group>"; };
 		25B3999E1C3685D40081B321 /* SNSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSHelper.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				258123381C379BAC004471AE /* Stage9.swift */,
 				2581233A1C37D1F1004471AE /* Stage10.swift */,
 				25982F001C380AE0005B4C1A /* Stage11.swift */,
+				25982F021C3850B4005B4C1A /* Stage12.swift */,
 			);
 			name = Stage;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */,
 				258BC6221C325FE300EB43D1 /* PaintManager.swift in Sources */,
 				25FE52241C25184400B8F1B7 /* PositionHelper.swift in Sources */,
+				25982F031C3850B4005B4C1A /* Stage12.swift in Sources */,
 				25FE52211C2420A700B8F1B7 /* Stage6.swift in Sources */,
 				258123571C37D878004471AE /* CheckFlag.swift in Sources */,
 				258BC6241C32619F00EB43D1 /* GameManager.swift in Sources */,
