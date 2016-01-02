@@ -25,6 +25,8 @@ class GameViewController: UIViewController {
         self.gameView = self.view as! SKView
         self.gameView.backgroundColor = UIColor.whiteColor()
         
+//        self.gameView.showsPhysics = true
+        
         self.configureNavigationBar()
         
         // ナビゲーションバーを非表示する
