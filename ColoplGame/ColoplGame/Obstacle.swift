@@ -10,7 +10,12 @@ import UIKit
 import SpriteKit
 
 class Obstacle: SKShapeNode {
-    func configure() {
+    
+    var makeGround: Bool!
+    
+    func configure(makeGround makeGround: Bool = true) {
+        self.makeGround = makeGround
+        
         self.fillColor = UIColor.lightGrayColor()
         self.strokeColor = UIColor.blackColor()
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
@@ -23,6 +28,9 @@ class Obstacle: SKShapeNode {
     }
     
     func createGround() {
+        if (!self.makeGround) {
+            return
+        }        
         let ground = SKShapeNode(rectOfSize: CGSize(width: self.frame.size.width - 5, height: 1.0))
         ground.position = CGPoint(x: 0, y: self.frame.size.height / 2)
         ground.fillColor = UIColor.yellowColor()

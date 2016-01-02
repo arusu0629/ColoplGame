@@ -19,7 +19,7 @@ class StageSelectScene: SKScene {
     var buttonColumnNum = 0.0 // ボタンの数による行数
     let screenWidth = Double(UIScreen.mainScreen().bounds.size.width)
     
-    let nextStageShowNum = 3.0 // 何個先のステージまで表示するかの数
+    let nextStageShowNum = 10.0 // 何個先のステージまで表示するかの数
     var buttonNum = 0.0
     
     var scrollView: UIScrollView!

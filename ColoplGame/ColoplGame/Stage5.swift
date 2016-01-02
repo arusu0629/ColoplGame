@@ -29,10 +29,10 @@ class Stage5: BaseStage {
     }
     
     func setObstacle() {
-        self.obstacle = Obstacle(rectOfSize: CGSize(width: 60, height: 60))
+        self.obstacle = Obstacle(rectOfSize: CGSize(width: 60, height: 50))
         let pos = CGPoint(x: self.frame.size.width - (self.obstacle.frame.size.width / 2), y: self.frame.size.height / 2 - (self.obstacle.frame.size.height / 2))
         self.obstacle.position = pos
-        self.obstacle.configure()
+        self.obstacle.configure(makeGround: false)
         self.addChild(self.obstacle)
         
         // 常時上下に移動させる
@@ -43,7 +43,7 @@ class Stage5: BaseStage {
     }
     
     func setGoalAreaPosition() {
-        let pos = CGPoint(x: 0, y: self.goalArea.frame.size.height)
+        let pos = CGPoint(x: 0, y: 50)
         self.goalArea.position = pos
         self.obstacle.addChild(self.goalArea)
     }
