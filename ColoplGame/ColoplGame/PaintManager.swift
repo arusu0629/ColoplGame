@@ -16,7 +16,7 @@ class PaintManager: NSObject {
     var lineObjects: [LineObject] = []
     var limitLineObjectNum = 3 // 描画できる数
     
-    var paintStageIndex = [7, 8] // 描画専用ステージのインデックス
+    var paintStageIndex = [7, 8, 9] // 描画専用ステージのインデックス
     
     func getPath() -> CGMutablePath {
         // 初期化

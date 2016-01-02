@@ -16,6 +16,7 @@
 		25804DBE1C240F5A00DDFB8E /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DBD1C240F5A00DDFB8E /* Obstacle.swift */; };
 		25804DC01C241B9300DDFB8E /* Stage5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804DBF1C241B9300DDFB8E /* Stage5.swift */; };
 		258123371C378582004471AE /* Stage8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258123361C378582004471AE /* Stage8.swift */; };
+		258123391C379BAC004471AE /* Stage9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258123381C379BAC004471AE /* Stage9.swift */; };
 		258BC6031C2F985700EB43D1 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BC6021C2F985700EB43D1 /* ViewControllerHelper.swift */; };
 		258BC6071C2FAB6700EB43D1 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BC6061C2FAB6700EB43D1 /* Line.swift */; };
 		258BC6091C2FB65000EB43D1 /* LineObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BC6081C2FB65000EB43D1 /* LineObject.swift */; };
@@ -87,6 +88,7 @@
 		25804DBD1C240F5A00DDFB8E /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		25804DBF1C241B9300DDFB8E /* Stage5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage5.swift; sourceTree = "<group>"; };
 		258123361C378582004471AE /* Stage8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage8.swift; sourceTree = "<group>"; };
+		258123381C379BAC004471AE /* Stage9.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage9.swift; sourceTree = "<group>"; };
 		258BC6021C2F985700EB43D1 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		258BC6061C2FAB6700EB43D1 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		258BC6081C2FB65000EB43D1 /* LineObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineObject.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				25FE52201C2420A700B8F1B7 /* Stage6.swift */,
 				25B3999A1C32DBFF0081B321 /* Stage7.swift */,
 				258123361C378582004471AE /* Stage8.swift */,
+				258123381C379BAC004471AE /* Stage9.swift */,
 			);
 			name = Stage;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				25804DBC1C2407DA00DDFB8E /* Stage4.swift in Sources */,
 				25804DC01C241B9300DDFB8E /* Stage5.swift in Sources */,
 				2597296E1C22BB7900432C27 /* GoalArea.swift in Sources */,
+				258123391C379BAC004471AE /* Stage9.swift in Sources */,
 				258BC6031C2F985700EB43D1 /* ViewControllerHelper.swift in Sources */,
 				259729681C2022B500432C27 /* GameViewController.swift in Sources */,
 				258BC6071C2FAB6700EB43D1 /* Line.swift in Sources */,
