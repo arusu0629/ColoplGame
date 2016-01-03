@@ -20,6 +20,7 @@ class StageSelectScene: SKScene {
     let screenWidth = Double(UIScreen.mainScreen().bounds.size.width)
     
     let nextStageShowNum = 3.0 // 何個先のステージまで表示するかの数
+    let limitStageNum = 13 // 遊べるステージの最大数(13ステージまで)
     var buttonNum = 0.0
     
     var scrollView: UIScrollView!
@@ -71,6 +72,13 @@ class StageSelectScene: SKScene {
             
             let stageButton = StageButton(frame: buttonRect, index: Int(i + 1))
             stageButton.addTarget(self, action: "showStage:", forControlEvents: .TouchUpInside)
+            
+            // 遊べるステージの最大数を超えている場合
+            if (Int(i + 1) > self.limitStageNum) {
+                // CommingSoon画像を載せる
+                stageButton.setImage(UIImage(named: "ComingSoon.jpg"), forState: .Normal)
+                stageButton.layer.borderWidth = 0
+            }
 
             self.scrollView.addSubview(stageButton)
         }
@@ -79,6 +87,13 @@ class StageSelectScene: SKScene {
     }
     
     func showStage(sender: StageButton) {
+        
+        // アラートを出して遊べないことを伝える
+        if (sender.tag > self.limitStageNum) {
+            print("Comming soon")
+            return
+        }
+        
         SceneManager.setStageIndex(sender.tag)
         changeSceneDelegate.changeScene(self)
         
