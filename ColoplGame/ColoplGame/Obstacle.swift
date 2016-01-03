@@ -12,6 +12,7 @@ import SpriteKit
 class Obstacle: SKShapeNode {
     
     var makeGround: Bool!
+    var ground: SKShapeNode!
     
     func configure(makeGround makeGround: Bool = true) {
         self.makeGround = makeGround
@@ -32,15 +33,15 @@ class Obstacle: SKShapeNode {
         if (!self.makeGround) {
             return
         }        
-        let ground = SKShapeNode(rectOfSize: CGSize(width: self.frame.size.width - 5, height: 1.0))
-        ground.position = CGPoint(x: 0, y: self.frame.size.height / 2)
-        ground.fillColor = UIColor.yellowColor()
-        ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.frame.size)
-        ground.physicsBody?.dynamic = false
-        ground.physicsBody?.categoryBitMask = GameScene.ColliderType.Ground
-        ground.name = "Ground"
+        self.ground = SKShapeNode(rectOfSize: CGSize(width: self.frame.size.width - 5, height: 1.0))
+        self.ground.position = CGPoint(x: 0, y: self.frame.size.height / 2)
+        self.ground.fillColor = UIColor.yellowColor()
+        self.ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.frame.size)
+        self.ground.physicsBody?.dynamic = false
+        self.ground.physicsBody?.categoryBitMask = GameScene.ColliderType.Ground
+        self.ground.name = "Ground"
         
-        ground.removeFromParent()
-        self.addChild(ground)
+        self.ground.removeFromParent()
+        self.addChild(self.ground)
     }
 }
