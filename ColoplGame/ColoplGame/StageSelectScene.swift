@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import SCLAlertView
 
 class StageSelectScene: SKScene {
     
@@ -27,6 +28,8 @@ class StageSelectScene: SKScene {
     var snsView: UIView!
     var snsViewHeight: CGFloat = 40
     var snsShareButtonWidth: CGFloat = 40
+    
+    var alertView = SCLAlertView()
     
     override func didMoveToView(view: SKView) {
         
@@ -90,7 +93,7 @@ class StageSelectScene: SKScene {
         
         // アラートを出して遊べないことを伝える
         if (sender.tag > self.limitStageNum) {
-            print("Comming soon")
+            alertView.showWarning("We Are Ready Now", subTitle: "Comming Soon!!!", closeButtonTitle: "OK")
             return
         }
         
