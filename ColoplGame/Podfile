@@ -6,6 +6,7 @@ use_frameworks!
 
 target 'ColoplGame' do
   pod 'RealmSwift'
+  pod 'SCLAlertView'
 end
 
 target 'ColoplGameTests' do

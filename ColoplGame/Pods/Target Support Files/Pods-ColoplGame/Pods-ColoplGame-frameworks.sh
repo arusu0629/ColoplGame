@@ -86,8 +86,15 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ColoplGame/Realm.framework"
   install_framework "Pods-ColoplGame/RealmSwift.framework"
+  install_framework "Pods-ColoplGame/SCLAlertView.framework"
+fi
+if [[ "$CONFIGURATION" == "Adhoc" ]]; then
+  install_framework "Pods-ColoplGame/Realm.framework"
+  install_framework "Pods-ColoplGame/RealmSwift.framework"
+  install_framework "Pods-ColoplGame/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ColoplGame/Realm.framework"
   install_framework "Pods-ColoplGame/RealmSwift.framework"
+  install_framework "Pods-ColoplGame/SCLAlertView.framework"
 fi
