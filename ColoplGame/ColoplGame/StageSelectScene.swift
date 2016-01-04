@@ -79,8 +79,7 @@ class StageSelectScene: SKScene {
             // 遊べるステージの最大数を超えている場合
             if (Int(i + 1) > self.limitStageNum) {
                 // CommingSoon画像を載せる
-                stageButton.setImage(UIImage(named: "ComingSoon.jpg"), forState: .Normal)
-                stageButton.layer.borderWidth = 0
+                stageButton.setImage(UIImage(named: "ComingSoon.png"), forState: .Normal)
             }
 
             self.scrollView.addSubview(stageButton)

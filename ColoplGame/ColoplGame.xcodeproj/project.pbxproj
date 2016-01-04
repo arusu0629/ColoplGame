@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25083A4A1C3A143A002AD1E5 /* ComingSoon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25083A491C3A143A002AD1E5 /* ComingSoon.png */; };
 		2565CEAB1C2EABCD00EE850F /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2565CEA81C2EABCD00EE850F /* jump.mp3 */; };
 		2565CEAD1C2EB1E200EE850F /* clear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2565CEAC1C2EB1E200EE850F /* clear.mp3 */; };
 		2565CEB31C2EB98D00EE850F /* transition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2565CEB01C2EB98C00EE850F /* transition.mp3 */; };
@@ -35,7 +36,6 @@
 		258BC6241C32619F00EB43D1 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258BC6231C32619F00EB43D1 /* GameManager.swift */; };
 		259130861C38FC8600334F6C /* Stage13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259130851C38FC8600334F6C /* Stage13.swift */; };
 		259130881C38FCF200334F6C /* FallenObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259130871C38FCF200334F6C /* FallenObstacle.swift */; };
-		2591308A1C390B9F00334F6C /* ComingSoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 259130891C390B9F00334F6C /* ComingSoon.jpg */; };
 		2597295F1C2006C300432C27 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597295E1C2006C300432C27 /* StartScene.swift */; };
 		259729611C200A0D00432C27 /* StageSelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729601C200A0D00432C27 /* StageSelectScene.swift */; };
 		259729631C20196E00432C27 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259729621C20196E00432C27 /* SceneManager.swift */; };
@@ -93,6 +93,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25083A491C3A143A002AD1E5 /* ComingSoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComingSoon.png; sourceTree = "<group>"; };
 		2565CEA81C2EABCD00EE850F /* jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump.mp3; sourceTree = "<group>"; };
 		2565CEAC1C2EB1E200EE850F /* clear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clear.mp3; sourceTree = "<group>"; };
 		2565CEB01C2EB98C00EE850F /* transition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = transition.mp3; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		258BC6231C32619F00EB43D1 /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		259130851C38FC8600334F6C /* Stage13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage13.swift; sourceTree = "<group>"; };
 		259130871C38FCF200334F6C /* FallenObstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallenObstacle.swift; sourceTree = "<group>"; };
-		259130891C390B9F00334F6C /* ComingSoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ComingSoon.jpg; sourceTree = "<group>"; };
 		2597295E1C2006C300432C27 /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		259729601C200A0D00432C27 /* StageSelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageSelectScene.swift; sourceTree = "<group>"; };
 		259729621C20196E00432C27 /* SceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 		25FE522B1C268B3100B8F1B7 /* Figure */ = {
 			isa = PBXGroup;
 			children = (
-				259130891C390B9F00334F6C /* ComingSoon.jpg */,
+				25083A491C3A143A002AD1E5 /* ComingSoon.png */,
 				2581234A1C37D7A4004471AE /* 1.jpg */,
 				2581234B1C37D7A4004471AE /* 2.jpg */,
 				2581234C1C37D7A4004471AE /* 3.jpg */,
@@ -518,11 +518,11 @@
 				258BC6201C2FFDD700EB43D1 /* Jump.jpg in Resources */,
 				25B399A31C3689A50081B321 /* Twitter.jpg in Resources */,
 				258123531C37D7A4004471AE /* 4.jpg in Resources */,
-				2591308A1C390B9F00334F6C /* ComingSoon.jpg in Resources */,
 				25B4CF0B1C1D2D6600E6E9C7 /* LaunchScreen.storyboard in Resources */,
 				2581235C1C37F2C4004471AE /* check.mp3 in Resources */,
 				25FE522D1C268B5A00B8F1B7 /* Good.jpg in Resources */,
 				258123521C37D7A4004471AE /* 3.jpg in Resources */,
+				25083A4A1C3A143A002AD1E5 /* ComingSoon.png in Resources */,
 				2565CEB31C2EB98D00EE850F /* transition.mp3 in Resources */,
 				2565CEAB1C2EABCD00EE850F /* jump.mp3 in Resources */,
 				258123551C37D7A4004471AE /* 6.jpg in Resources */,
