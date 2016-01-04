@@ -65,7 +65,7 @@ class Stage13: BaseStage {
     }
     
     func setHintLabel() {
-        let text = "むらさき色の障害物は触れると落ちるぞ!"
+        let text = "むらさき色の障害物に乗ると落ちるぞ!"
         let label = HintLabel(text: text)
         let size = label.frame.size
         let pos = CGPoint(x: (self.frame.size.width / 2) - (size.width / 2), y: self.frame.size.height - (size.height * 2))
