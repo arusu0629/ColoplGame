@@ -25,7 +25,7 @@ class StartScene: SKScene {
         titleLabel.fontColor = UIColor.blackColor()
         titleLabel.position = CGPoint(x: sceneSize.width / 2, y: sceneSize.height / 2)
         titleLabel.zPosition = 100
-        titleLabel.text = "Colopl Game"
+        titleLabel.text = "Dots転がし"
         self.addChild(titleLabel)
         
         // ラベルの下にフェードイン/アウトを繰り返した小さなラベルを表示
