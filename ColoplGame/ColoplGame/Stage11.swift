@@ -60,12 +60,15 @@ class Stage11: BaseStage {
         let size = CGSize(width: 50, height: 50)
         self.obstacle = Obstacle(rectOfSize: size)
         self.obstacle.configure()
+        // ゴールエリアと衝突しないようにする
+        self.obstacle.physicsBody?.collisionBitMask = GameScene.ColliderType.None
+        self.obstacle.physicsBody?.dynamic = false
         self.addChild(self.obstacle)
         self.moveUpAction() // 始めは下から上がっていく
     }
     
     func moveUpAction() {
-        let moveUp = SKAction.moveToY(self.frame.size.height, duration: 3.0)
+        let moveUp = SKAction.moveToY(self.frame.size.height, duration: 4.0)
         let x = (Int)(arc4random_uniform(UInt32(self.frame.size.width)))
         self.obstacle.position = CGPoint(x: x, y: 0)
         self.obstacle.runAction(moveUp) {
@@ -102,7 +105,6 @@ class Stage11: BaseStage {
     override func didBeginContact(contact: SKPhysicsContact) {
         super.didBeginContact(contact)
         if ((contact.bodyA.node == self.playerBall && contact.bodyB.node == self.flag) || (contact.bodyA.node == self.flag && contact.bodyB.node == self.playerBall)) {
-            
             if (self.shouldThroughNumber == flag.checkNumber) {
                     self.flag.collisionPlayerBall()
                     self.shouldThroughNumber++
