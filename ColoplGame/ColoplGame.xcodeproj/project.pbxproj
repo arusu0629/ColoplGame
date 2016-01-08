@@ -564,7 +564,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Adhoc\" ]; then\nxcrun -sdk iphoneos PackageApplication \\\n\"${BUILD_DIR}/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/${WRAPPER_NAME}\" \\\n-o ~/Desktop/SwiftGame/ColoplGame.ipa \\\n--embed ~/Library/MobileDevice/Provisioning\\ Profiles/ColoplGameSwift.mobileprovision\ndgate push arusu0629 ~/Desktop/SwiftGame/ColoplGame.ipa\nfi";
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Adhoc\" ]; then\nxcrun -sdk iphoneos PackageApplication \\\n\"${BUILD_DIR}/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/${WRAPPER_NAME}\" \\\n-o ~/Desktop/SwiftGame/ColoplGame/ColoplGame/ColoplGame.ipa \\\n--embed ~/Library/MobileDevice/Provisioning\\ Profiles/ColoplGameSwift.mobileprovision\n#dgate push arusu0629 ~/Desktop/SwiftGame/ColoplGame.ipa\nfi";
 		};
 		75380117025EC74C72763AE0 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
